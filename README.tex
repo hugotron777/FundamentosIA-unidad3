@@ -1,0 +1,222 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  spanish,
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% Símbolos Unicode (griegos, sub/superíndices, operadores) que Latin Modern no trae
+\usepackage{newunicodechar}
+\newfontfamily\simbolos{DejaVu Serif}[Scale=MatchLowercase]
+\newunicodechar{α}{{\simbolos α}}
+\newunicodechar{β}{{\simbolos β}}
+\newunicodechar{δ}{{\simbolos δ}}
+\newunicodechar{η}{{\simbolos η}}
+\newunicodechar{π}{{\simbolos π}}
+\newunicodechar{ρ}{{\simbolos ρ}}
+\newunicodechar{τ}{{\simbolos τ}}
+\newunicodechar{χ}{{\simbolos χ}}
+\newunicodechar{ᵢ}{{\simbolos ᵢ}}
+\newunicodechar{⁰}{{\simbolos ⁰}}
+\newunicodechar{⁶}{{\simbolos ⁶}}
+\newunicodechar{⁷}{{\simbolos ⁷}}
+\newunicodechar{⁹}{{\simbolos ⁹}}
+\newunicodechar{⁻}{{\simbolos ⁻}}
+\newunicodechar{ⁿ}{{\simbolos ⁿ}}
+\newunicodechar{₀}{{\simbolos ₀}}
+\newunicodechar{₁}{{\simbolos ₁}}
+\newunicodechar{₂}{{\simbolos ₂}}
+\newunicodechar{₊}{{\simbolos ₊}}
+\newunicodechar{ₖ}{{\simbolos ₖ}}
+\newunicodechar{ₙ}{{\simbolos ₙ}}
+\newunicodechar{∈}{{\simbolos ∈}}
+\newunicodechar{∉}{{\simbolos ∉}}
+\newunicodechar{∝}{{\simbolos ∝}}
+\newunicodechar{≈}{{\simbolos ≈}}
+\newunicodechar{≠}{{\simbolos ≠}}
+\newunicodechar{≤}{{\simbolos ≤}}
+\newunicodechar{≥}{{\simbolos ≥}}
+\newunicodechar{⊆}{{\simbolos ⊆}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Algoritmos Heurísticos: Ciclo Hamiltoniano sobre el FHCP Challenge Set},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Algoritmos Heurísticos: Ciclo Hamiltoniano sobre el FHCP
+Challenge Set}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+Código de la práctica ``Aula invertida -- Algoritmos heurísticos'':
+carga grafos del FHCP, ejecuta metaheurísticas (GA, SA, ACO, Bee Colony,
+DE, PSO) y devuelve un arreglo de vértices (el ciclo propuesto).
+
+\section{Estructura}\label{estructura}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{src/core/} loader HCP, lector/escritor TOUR, fitness,
+  validador, representación, operadores, interfaz común
+\item
+  \texttt{src/algorithms/} \texttt{ga.py}, \texttt{sa.py} (swap y
+  2-opt), \texttt{aco.py}, \texttt{bee.py}, \texttt{de.py},
+  \texttt{pso.py}, \texttt{random\_search.py} + registro
+\item
+  \texttt{src/core/preprocess.py} aristas forzadas de vértices de grado
+  2; \texttt{operators.py} también trae ER (recombinación de aristas)
+\item
+  \texttt{experiments/} \texttt{runner.py} (una corrida),
+  \texttt{benchmark.py} (todo el benchmark), \texttt{tuning.py} (ajuste
+  de parámetros), \texttt{analisis.py} (tablas, pruebas estadísticas y
+  figuras), \texttt{catalogo.py} (catálogo de instancias),
+  \texttt{interfaz.py} (interfaz gráfica con tkinter)
+\item
+  \texttt{data/instances/} instancias (.hcp); \texttt{data/README.md}
+  explica su origen; \texttt{data/catalogo\_fhcp.csv} cataloga las 1001
+\item
+  \texttt{INFORME.md} informe técnico completo (teoría, comparativa,
+  benchmarking contra el FHCP y conclusiones)
+\item
+  \texttt{results/} resultados del benchmark, del ajuste, tablas y
+  figuras; \texttt{tests/} pruebas (\texttt{pytest})
+\end{itemize}
+
+\section{Convenciones}\label{convenciones}
+
+\begin{itemize}
+\tightlist
+\item
+  Vértices internos 0..n-1; los archivos usan 1..n (la conversión está
+  en \texttt{hcp\_io.py}).
+\item
+  Fitness = aristas faltantes del ciclo cerrado; éxito si fitness == 0.
+  El validador es independiente de los algoritmos.
+\item
+  Todo algoritmo expone
+  \texttt{run(instance,\ config,\ seed)\ -\textgreater{}\ Result(best\_route,\ best\_fitness,\ history,\ time,\ iterations)}.
+\item
+  1 iteración = 1 evaluación de fitness (completa en GA/ACO/DE/PSO; por
+  delta O(1) en SA/Bee). Presupuesto = evaluaciones o tiempo.
+\end{itemize}
+
+\section{Uso (desde la carpeta raíz del
+proyecto)}\label{uso-desde-la-carpeta-rauxedz-del-proyecto}
+
+\begin{verbatim}
+pip install -r requirements.txt
+python -m pytest
+
+# Interfaz gráfica (tkinter): elegir grafo y algoritmo, ver el ciclo y la convergencia
+python -m experiments.interfaz
+# En Linux, si falta tkinter: sudo apt install python3-tk
+
+# Una corrida con varias semillas -> CSV
+python -m experiments.runner --instance data/instances/graph1.hcp --algorithm sa_2opt --seeds 10 --max-iter 100000 --out results/sa_graph1.csv
+
+# Benchmark completo (reanudable) + análisis
+python -m experiments.benchmark --instances data/instances/graph1.hcp data/instances/graph24.hcp \
+    --algorithms ga sa sa_2opt aco bee de pso random_search --seeds 10 --max-evals 100000 --time-limit 15 \
+    --out results/bench --tours results/tours
+python -m experiments.analisis --prefix results/bench --out results/analisis
+\end{verbatim}
+
+Algoritmos disponibles: \texttt{ga}, \texttt{sa} (swap),
+\texttt{sa\_2opt}, \texttt{aco}, \texttt{bee}, \texttt{de},
+\texttt{pso}, \texttt{random\_search} y las mejoras de la segunda ronda:
+\texttt{aco\_ls} (ACO + 2-opt, el único que resolvió una instancia),
+\texttt{aco\_ls\_pre} (+ preprocesamiento) y \texttt{ga\_er} (GA con
+recombinación de aristas). Los tours válidos encontrados se guardan en
+\texttt{results/tours/} (formato TOUR del FHCP). Los parámetros por
+algoritmo están en el docstring de cada módulo y se pasan en
+\texttt{Config.params}.
+
+\section{Autores}\label{autores}
+
+Universidad Politécnica de Victoria · Docente: Dr.~Said Polanco Martagón
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Nombre & Matrícula \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Jared de Jesús Olazarán López & 2430022 \\
+Georgina Reta Limas & 2430043 \\
+Dulce Yaretzi Martínez Pérez & 2430038 \\
+Melissa Jazmín Torres Martínez & 2430017 \\
+Hugo Guillermo De León Ruiz & 2330419 \\
+\end{longtable}
+}
+
+\end{document}
