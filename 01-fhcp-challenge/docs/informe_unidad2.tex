@@ -1,0 +1,1569 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  spanish,
+  12pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[letterpaper,left=2.25cm,right=2.25cm,top=3cm,bottom=2.3cm,headheight=42pt,headsep=0.6cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},fontsize=\footnotesize,breaklines=true}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% Símbolos Unicode (griegos, sub/superíndices, operadores) que Latin Modern no trae
+\usepackage{newunicodechar}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{δ}{\ensuremath{\delta}}
+\newunicodechar{η}{\ensuremath{\eta}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{∉}{\ensuremath{\notin}}
+\newunicodechar{∝}{\ensuremath{\propto}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≠}{\ensuremath{\ne}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{⊆}{\ensuremath{\subseteq}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{∑}{\ensuremath{\sum}}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{∞}{\ensuremath{\infty}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{₀}{\ensuremath{_{0}}}
+\newunicodechar{₁}{\ensuremath{_{1}}}
+\newunicodechar{₂}{\ensuremath{_{2}}}
+\newunicodechar{₊}{\ensuremath{_{+}}}
+\newunicodechar{ₖ}{\ensuremath{_{k}}}
+\newunicodechar{ₙ}{\ensuremath{_{n}}}
+\newunicodechar{ᵢ}{\ensuremath{_{i}}}
+\newunicodechar{⁰}{\ensuremath{^{0}}}
+\newunicodechar{⁶}{\ensuremath{^{6}}}
+\newunicodechar{⁷}{\ensuremath{^{7}}}
+\newunicodechar{⁹}{\ensuremath{^{9}}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{ⁿ}{\ensuremath{^{n}}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Informe técnico: Metaheurísticas para el Problema del Ciclo Hamiltoniano sobre el FHCP Challenge Set},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Informe técnico: Metaheurísticas para el Problema del Ciclo
+Hamiltoniano sobre el FHCP Challenge Set}
+\author{}
+\date{}
+
+
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{float}
+\setstretch{1.15}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=1.05cm]{docs/UTYP.png}}
+\fancyhead[C]{\scriptsize Fundamentos de Inteligencia Artifical\\Unidad 2: Algoritmos heurísticos}
+\fancyhead[R]{\includegraphics[height=1.05cm]{docs/LogoUPV_2023.png}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\AtBeginEnvironment{longtable}{\footnotesize\setlength{\tabcolsep}{3pt}\setstretch{1.0}}
+\setlength{\emergencystretch}{4em}
+\hypersetup{pdftitle={Unidad 2: Algoritmos heurísticos},pdfauthor={Equipo de Fundamentos de Inteligencia Artifical}}
+\usepackage{fvextra}
+
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
+\includegraphics[height=1.8cm]{docs/UTYP.png}&\includegraphics[height=1.8cm]{docs/LogoUPV_2023.png}
+\end{tabular*}
+\vspace{0.5cm}
+
+{\Large\bfseries UNIVERSIDAD POLITÉCNICA DE VICTORIA\par}
+\vspace{0.4cm}
+{\large Fundamentos de Inteligencia Artifical\par}
+\vspace{0.7cm}
+{\LARGE\bfseries Algoritmos heurísticos para el problema del ciclo hamiltoniano\par}
+\vspace{0.3cm}
+{\large Práctica de aula invertida\par}
+{\large Informe técnico y comparativo del FHCP Challenge Set\par}
+\vspace{0.5cm}
+{\large\bfseries Unidad 2\quad |\quad Cuatrimestre 7\par}
+\vspace{0.6cm}
+{\small QUE PRESENTAN\par}
+\vspace{0.15cm}
+\begin{tabular}{lc}
+\toprule
+\textbf{Alumno(a)}&\textbf{Matrícula}\\
+\midrule
+Jared de Jesús Olazarán López&2430022\\
+Georgina Reta Limas&2430043\\
+Dulce Yaretzi Martínez Pérez&2430038\\
+Melissa Jazmín Torres Martínez&2430017\\
+Hugo Guillermo De León Ruiz&2330419\\
+\bottomrule
+\end{tabular}
+\vspace{0.6cm}
+
+{\small MAESTRO A CARGO DE LA MATERIA\par}
+{\large\bfseries Doctor Said Polanco Martagon\par}
+\vfill
+\begin{flushright}
+Ciudad Victoria, Tamaulipas\\13 de noviembre de 2026
+\end{flushright}
+\end{titlepage}
+\pagenumbering{roman}
+\renewcommand{\contentsname}{Contenido temático}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\section{Introducción y objetivos}
+El problema del ciclo hamiltoniano exige construir una ruta cerrada que visite cada vértice una sola vez. Su dificultad no consiste únicamente en ordenar vértices: también debe existir cada arista que une dos posiciones consecutivas, incluida la última con la primera. Esta práctica estudia cómo distintas metaheurísticas buscan soluciones sin enumerar todas las permutaciones posibles.
+
+El objetivo general es implementar y evaluar GA, SA, ACO, colonia de abejas, DE y PSO sobre instancias del FHCP Challenge Set. Los objetivos específicos son: fundamentar la representación y el costo; preservar permutaciones legales; validar independientemente los ciclos; comparar éxito, calidad, evaluaciones y tiempo; y explicar la brecha respecto a métodos especializados. El informe sigue las cuatro fases de la práctica original: investigación, definición del problema y dataset, implementación y portafolio de evidencias.
+
+La teoría orienta las decisiones de diseño: una permutación evita repetir u omitir vértices; contar aristas faltantes permite evaluar rutas incompletas; y aceptar temporalmente peores candidatos, compartir información o renovar poblaciones permite explorar regiones distintas. Ninguna de estas estrategias garantiza resolver todas las instancias dentro de un presupuesto finito. Fallar en una corrida tampoco demuestra que un grafo no sea hamiltoniano.
+
+Los resultados experimentales que siguen proceden de los archivos CSV e historiales ya incluidos en el repositorio. La revisión actual del programa se presenta por separado en la guía de ejecución; no se atribuyen nuevos tiempos a los experimentos históricos.
+\section{Resumen}\label{resumen}
+
+Se implementaron seis metaheurísticas (GA, SA, ACO, Colonia de Abejas,
+DE y PSO), más una búsqueda aleatoria como línea base y tres variantes
+mejoradas (SA con 2-opt, GA con recombinación de aristas y ACO con
+búsqueda local 2-opt con y sin preprocesamiento). Todas cargan grafos
+del FHCP Challenge Set en formato HCP y devuelven un arreglo de vértices
+(el ciclo propuesto), que un validador independiente comprueba.
+
+Se evaluaron sobre 4 instancias del FHCP (n = 66 a 1002) con 10 semillas
+por algoritmo, un presupuesto de 100 000 evaluaciones de fitness y un
+tope de 15 s por corrida. Se hizo además una ronda ``pesada'' de 60 s
+por corrida sobre 6 instancias (hasta n = 3468).
+
+\textbf{Resultado principal:} solo los algoritmos con búsqueda local
+dirigida resolvieron una instancia del set. ACO + 2-opt encontró el
+ciclo hamiltoniano de \texttt{graph1} en las 10/10 corridas (≈0.5 s,
+≈530 hormigas) y SA con 2-opt lo encontró en 5/10 corridas con 60 s. En
+\texttt{graph24} y \texttt{graph41}, ACO + 2-opt y SA (2-opt) llegan a
+fitness 1: encuentran un \textbf{camino} hamiltoniano, pero sus extremos
+no son adyacentes. DE y PSO con claves aleatorias apenas mejoran a la
+búsqueda aleatoria. En comparación, el equipo ganador del reto oficial
+(Cohen y Coudert) resolvió 985 de los 1001 grafos.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{1. Fundamentación teórica (Fase
+1)}\label{fundamentaciuxf3n-teuxf3rica-fase-1}
+
+\subsection{1.1 Grafos, caminos y ciclos
+hamiltonianos}\label{grafos-caminos-y-ciclos-hamiltonianos}
+
+Un \textbf{grafo no dirigido} es un par G = (V, E), donde V = \{v₁,
+\ldots, vₙ\} es el conjunto de \textbf{vértices} y E ⊆ \{\{u, v\} : u, v
+∈ V, u ≠ v\} el de \textbf{aristas}. El \textbf{grado} de un vértice es
+su número de vecinos.
+
+\begin{itemize}
+\tightlist
+\item
+  Un \textbf{camino} es una sucesión de vértices distintos (v₁, v₂,
+  \ldots, vₖ) en la que cada par consecutivo \{vᵢ, vᵢ₊₁\} ∈ E.
+\item
+  Un \textbf{ciclo} es un camino (v₁, \ldots, vₖ) con k ≥ 3 que además
+  cumple \{vₖ, v₁\} ∈ E.
+\item
+  Un \textbf{camino hamiltoniano} es un camino que pasa por los n
+  vértices exactamente una vez.
+\item
+  Un \textbf{ciclo hamiltoniano} es un ciclo que pasa por los n vértices
+  exactamente una vez y regresa al origen. Por tanto tiene
+  \textbf{longitud exacta n}: usa n vértices distintos y n aristas, n −
+  1 entre consecutivos más la de cierre \{vₙ, v₁\}.
+\end{itemize}
+
+Formalmente, G es hamiltoniano si existe una permutación π de \{1,
+\ldots, n\} tal que \{v\_π(i), v\_π(i+1)\} ∈ E para i = 1, \ldots, n − 1
+y \{v\_π(n), v\_π(1)\} ∈ E.
+
+\textbf{Complejidad.} Decidir si un grafo es hamiltoniano es
+\textbf{NP-completo}: es uno de los 21 problemas de Karp (1972), y la
+versión de búsqueda es NP-difícil. El número de ciclos candidatos es (n
+− 1)!/2. Para el grafo más pequeño del set (n = 66) eso da del orden de
+10⁹⁰ candidatos, así que la fuerza bruta es impracticable.
+
+\textbf{Relación con el TSP.} El ciclo hamiltoniano es un caso
+particular del Problema del Agente Viajero. Basta asignar costo 0 a las
+aristas de G y costo 1 a los pares que no son aristas: G es hamiltoniano
+si y solo si el tour óptimo cuesta 0. Esta reducción justifica la
+función de fitness de la sección 2.2 y explica por qué los mejores
+resolvedores del FHCP (Concorde, LKH) vienen del TSP.
+
+\subsection{1.2 Representación del espacio de
+búsqueda}\label{representaciuxf3n-del-espacio-de-buxfasqueda}
+
+Elegir la representación es decisivo. Hay dos riesgos: generar
+estructuras \textbf{ilegales} (vértices repetidos u omitidos) o
+representaciones con mucha redundancia. Se consideraron estas opciones:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Representación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ventaja
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Problema
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Lista de aristas / matriz binaria & Directa & La mayoría de los
+individuos no son ciclos; requiere reparación \\
+\textbf{Permutación de vértices} (elegida) & Siempre visita cada vértice
+una vez & Puede usar ``aristas'' que no existen en G \\
+Claves aleatorias (\emph{random keys}) & Permite operadores continuos
+(DE, PSO) & Fuerte redundancia: muchos vectores dan la misma
+permutación \\
+\end{longtable}
+}
+
+La decisión fue representar \textbf{toda solución como una permutación
+de 0..n−1}. Con ella, la restricción ``cada vértice exactamente una
+vez'' se cumple por construcción. La única restricción que puede
+violarse es ``cada par consecutivo es una arista'', y eso es justo lo
+que mide el fitness. Para que nunca aparezcan cromosomas ilegales, todos
+los operadores (swap, inversión 2-opt, cruza OX, recombinación de
+aristas, decodificación SPV) son \textbf{cerrados sobre permutaciones}.
+Las pruebas de \texttt{tests/} lo verifican.
+
+\subsection{1.3 Función de evaluación y
+heurísticas}\label{funciuxf3n-de-evaluaciuxf3n-y-heuruxedsticas}
+
+Con la reducción al TSP, el fitness natural es el \textbf{número de
+aristas faltantes} del ciclo cerrado:
+
+f(π) = \textbar\{ i ∈ \{1..n\} : \{π(i), π(i mod n + 1)\} ∉ E
+\}\textbar{}
+
+\begin{itemize}
+\tightlist
+\item
+  f(π) = 0 si y solo si π es un ciclo hamiltoniano (criterio de éxito).
+\item
+  f(π) = 1 significa que π contiene un \textbf{camino hamiltoniano}
+  cuyos extremos no son adyacentes.
+\item
+  La \textbf{legalidad} se define como 1 − f/n: la fracción de aristas
+  del ciclo propuesto que existen en G.
+\end{itemize}
+
+Se estudiaron estas heurísticas que guían la búsqueda hacia la meta:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Evaluación incremental (delta).} Un swap o una inversión 2-opt
+  cambia como máximo 4 o 2 aristas, así que el cambio de fitness se
+  calcula en O(1) en lugar de O(n) (\texttt{two\_opt\_delta},
+  \texttt{swap\_delta}).
+\item
+  \textbf{Regla de Warnsdorff} (1823). Se prefiere el vecino con menos
+  vecinos libres, porque es el que corre más riesgo de quedar aislado.
+  ACO la usa como información heurística η.
+\item
+  \textbf{Rotaciones de Pósa} (1976). Dado un camino, una arista desde
+  un extremo hacia un vértice interior permite invertir un tramo y
+  cambiar el extremo sin perder aristas. La búsqueda local de ACO las
+  usa como movimientos neutros (delta = 0) para salir de mesetas.
+\item
+  \textbf{Aristas forzadas.} Un vértice de grado 2 obliga a usar sus dos
+  aristas, lo que permite eliminar otras aristas incompatibles. Es un
+  preprocesamiento clásico en resolvedores del HCP
+  (\texttt{src/core/preprocess.py}).
+\end{itemize}
+
+\subsection{1.4 Métricas de
+evaluación}\label{muxe9tricas-de-evaluaciuxf3n}
+
+\textbf{Métricas de desempeño algorítmico}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Métrica
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Definición en este proyecto
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Tasa de éxito & Corridas con f = 0 (validadas) / corridas totales. IC 95
+\% de Wilson \\
+Costo en iteraciones & 1 iteración = 1 evaluación de fitness, completa o
+por delta. Así se comparan algoritmos con poblaciones de distinto
+tamaño \\
+Tiempo computacional & Segundos de reloj por corrida
+(\texttt{time.perf\_counter}) \\
+ERT & \emph{Expected Running Time}: evaluaciones totales / número de
+éxitos (Auger y Hansen, 2005) \\
+Calidad & Fitness final (mejor, mediana, media, desviación) y
+legalidad \\
+\end{longtable}
+}
+
+\textbf{Métricas estadísticas: precisión, recall y F1.} Para aplicarlas,
+la búsqueda del ciclo se plantea como una tarea de clasificación en dos
+niveles:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Nivel corrida.} Las 1001 instancias del FHCP son
+  hamiltonianas, así que toda corrida es un caso positivo.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    TP: el algoritmo reporta un ciclo y el validador independiente lo
+    confirma.
+  \item
+    FP: reporta un ciclo que el validador rechaza.
+  \item
+    FN: no encuentra ciclo.
+  \end{itemize}
+
+  Entonces precisión = TP/(TP+FP), \textbf{recall = TP/(TP+FN) = tasa de
+  éxito} y F1 = 2PR/(P+R).
+\item
+  \textbf{Nivel arista.} De las n aristas que propone el ciclo, son
+  aciertos las que existen en G. La \textbf{precisión de aristas} es
+  igual a la legalidad. El recall de aristas no se puede definir sin un
+  ciclo de referencia único (una instancia puede tener muchos ciclos),
+  así que no se reporta.
+\end{itemize}
+
+\texttt{experiments/analisis.py} calcula estas métricas y las escribe en
+\path{metricas_clasificacion.csv}.
+
+\textbf{Pruebas estadísticas.} Se usaron Kruskal-Wallis por instancia,
+Mann-Whitney unilateral del mejor algoritmo contra cada uno de los demás
+con corrección de Holm, y Friedman con rangos medios entre instancias.
+Son pruebas no paramétricas, porque el fitness es discreto y está
+acotado.
+
+\subsection{1.5 El FHCP Challenge}\label{el-fhcp-challenge}
+
+El \textbf{Flinders Hamiltonian Cycle Project} publicó el \emph{FHCP
+Challenge Set}: \textbf{1001 grafos hamiltonianos} de 66 a 9528 vértices
+(media ≈ 3000), diseñados para ser difíciles para las heurísticas
+estándar. Los candidatos se probaron con Concorde, LKH y SLH, y se
+incluyó cada grafo que resultó difícil para al menos dos de ellos
+(Haythorpe, 2018). El reto estuvo abierto del 30/09/2015 al 30/09/2016,
+con un premio de US\$1001.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Formato HCP} (entrada): encabezado \texttt{NAME},
+  \texttt{COMMENT}, \texttt{TYPE\ :\ HCP}, \texttt{DIMENSION\ :\ n},
+  \texttt{EDGE\_DATA\_FORMAT\ :\ EDGE\_LIST},
+  \texttt{EDGE\_DATA\_SECTION}; después una arista ``u v'' por línea con
+  vértices 1..n, y al final \texttt{-1} / \texttt{EOF}.
+\item
+  \textbf{Formato TOUR} (solución): \texttt{TYPE\ :\ TOUR},
+  \texttt{DIMENSION}, \texttt{TOUR\_SECTION}; los n vértices en orden,
+  \texttt{-1}, \texttt{EOF}. El proyecto escribe así los ciclos
+  encontrados (\texttt{results/tours/}).
+\item
+  \textbf{Criterio de benchmarking del reto:} el \textbf{número de
+  instancias para las que se entrega un ciclo hamiltoniano válido}. No
+  se premiaban soluciones parciales ni el tiempo. Por eso, además de la
+  tasa de éxito por corrida, el proyecto reporta ``instancias
+  resueltas'' (al menos una corrida exitosa).
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{2. Definición del problema y del modelo (Fases 2 y
+4.2)}\label{definiciuxf3n-del-problema-y-del-modelo-fases-2-y-4.2}
+
+\subsection{2.1 Definición algorítmica del grafo y los
+vértices}\label{definiciuxf3n-algoruxedtmica-del-grafo-y-los-vuxe9rtices}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{src/core/hcp\_io.py} lee los archivos \texttt{.hcp} y
+  convierte las etiquetas 1..n del archivo a vértices internos 0..n−1.
+  Ignora aristas duplicadas y lazos. También escribe archivos
+  \texttt{.tour} en 1..n.
+\item
+  \texttt{src/core/graph.py}:
+  \texttt{Instance(name,\ n,\ adj,\ m,\ sha256)}, donde
+  \texttt{adj{[}v{]}} es un \texttt{frozenset} de vecinos. Así, la
+  consulta ``¿\{u, v\} ∈ E?'' es O(1) en promedio, que es la operación
+  más usada por todos los algoritmos.
+\item
+  \texttt{src/core/fitness.py}: \texttt{fitness()} cuenta las aristas
+  faltantes y \texttt{validate()} es un \textbf{validador independiente}
+  de los algoritmos. Verifica que el resultado sea una permutación (sin
+  repetidos ni ausentes) y que tenga 0 aristas faltantes. Todo éxito
+  reportado se re-valida con él.
+\end{itemize}
+
+\subsection{2.2 Representación y función de
+fitness}\label{representaciuxf3n-y-funciuxf3n-de-fitness}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Algoritmo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Representación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cómo se obtiene la permutación
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+GA, SA, Bee & Permutación (vértice 0 fijo en SA/Bee) & Directa \\
+ACO & Ruta construida vértice a vértice & Directa: la hormiga recorre
+aristas reales y salta solo si no tiene salida \\
+DE, PSO & Vector real de n claves & Decodificación \textbf{SPV}
+(\emph{Smallest Position Value}): ordenar los vértices por clave \\
+\end{longtable}
+}
+
+En todos los casos, fitness = aristas faltantes del ciclo cerrado
+(sección 1.3), que se \textbf{minimiza}.
+
+\subsection{2.3 Interfaz común}\label{interfaz-comuxfan}
+
+Todos los algoritmos exponen
+
+\begin{verbatim}
+run(instance, config, seed) -> Result(
+    best_route, best_fitness, history, time, iterations)
+\end{verbatim}
+
+Un objeto \texttt{Budget} lleva la cuenta de evaluaciones y tiempo, y
+aplica el mismo límite a todos. \texttt{experiments/resolver.py} es el
+punto de entrada mínimo que pide la Fase 4.1: carga un grafo, ejecuta
+una metaheurística, imprime el arreglo de vértices y guarda el
+\texttt{.tour} si es válido.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{3. Implementación algorítmica (Fase
+3)}\label{implementaciuxf3n-algoruxedtmica-fase-3}
+
+Los valores entre corchetes son los parámetros finales, elegidos con
+\texttt{experiments/tuning.py} (ver 4.3).
+
+\subsection{\texorpdfstring{3.1 Algoritmo Genético (GA): base de control
+(\texttt{src/algorithms/ga.py})}{3.1 Algoritmo Genético (GA): base de control (src/algorithms/ga.py)}}\label{algoritmo-genuxe9tico-ga-base-de-control-srcalgorithmsga.py}
+
+Población de permutaciones, selección por torneo (k = 3), \textbf{cruza
+OX} (\emph{Order Crossover}: copia un tramo de un padre y completa con
+el orden relativo del otro), \textbf{mutación por inversión} de un tramo
+y elitismo (2 individuos). {[}pop\_size = 50, pc = 0.9, pm = 0.3{]}
+
+\textbf{Variante GA (ER):} cruza por \textbf{recombinación de aristas}
+(Whitley et al., 1989), que hereda aristas en lugar de posiciones.
+
+\subsection{\texorpdfstring{3.2 Recocido Simulado (SA)
+(\texttt{src/algorithms/sa.py})}{3.2 Recocido Simulado (SA) (src/algorithms/sa.py)}}\label{recocido-simulado-sa-srcalgorithmssa.py}
+
+Como pide la práctica, el vecino es un \textbf{intercambio aleatorio de
+dos índices (swap)} del arreglo. La aceptación sigue el criterio de
+Metropolis: un movimiento que empeora en δ se acepta con probabilidad P
+= exp(−δ/T). El enfriamiento es geométrico y \textbf{lento}: T va de t₀
+a t\_end a lo largo de todo el presupuesto, T =
+t₀·(t\_end/t₀)\^{}progreso, y se recalcula cada 64 movimientos. El delta
+se calcula en O(1). {[}swap: t₀ = 2.0, t\_end = 0.01{]}
+
+Con t₀ = 2.0, al inicio se acepta el 61 \% de los movimientos que
+empeoran en una arista (e\^{}(−1/2)) y el 14 \% de los que empeoran en
+cuatro. La temperatura baja 200 veces a lo largo de las 100 000
+evaluaciones, así que al final SA solo acepta mejoras o movimientos
+neutros (ver 4.3).
+
+\textbf{Variante SA (2-opt):} el vecino invierte un tramo, lo que cambia
+solo 2 aristas en vez de 4.
+
+{[}t₀ = 0.3, t\_end = 0.02{]}
+
+\subsection{\texorpdfstring{3.3 Colonia de Hormigas (ACO)
+(\texttt{src/algorithms/aco.py})}{3.3 Colonia de Hormigas (ACO) (src/algorithms/aco.py)}}\label{colonia-de-hormigas-aco-srcalgorithmsaco.py}
+
+Es un esquema \textbf{MAX-MIN Ant System} (Stützle y Hoos, 2000). Cada
+hormiga parte del vértice 0 y avanza \textbf{solo por aristas reales}
+hacia vértices no visitados. Elige el siguiente vértice con probabilidad
+∝ τ\textsuperscript{α·η}β, con η = 1/(1 + vecinos libres del candidato),
+que es la regla de Warnsdorff. Si queda acorralada, salta a un vértice
+no visitado al azar; esa arista falta y penaliza el fitness. La feromona
+se evapora a razón ρ y se deposita en las aristas del mejor de la
+iteración y del mejor global, dentro de los límites {[}τ\_min,
+τ\_max{]}. Así se \textbf{refuerzan las aristas que conectan nodos
+difíciles} en rutas prometedoras. {[}ants = 5, α = 1, β = 2, ρ = 0.1{]}
+
+\textbf{Variantes:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{ACO + 2-opt (\texttt{aco\_ls}):} cada hormiga se refina con
+  una búsqueda local 2-opt dirigida a sus aristas faltantes, más hasta
+  100 movimientos neutros por rotaciones de Pósa.
+\item
+  \textbf{ACO + 2-opt + prepro. (\texttt{aco\_ls\_pre}):} además reduce
+  el grafo con aristas forzadas (sección 1.3).
+\end{itemize}
+
+\subsection{\texorpdfstring{3.4 Colonia de Abejas (ABC discreta)
+(\texttt{src/algorithms/bee.py})}{3.4 Colonia de Abejas (ABC discreta) (src/algorithms/bee.py)}}\label{colonia-de-abejas-abc-discreta-srcalgorithmsbee.py}
+
+Las fuentes de alimento son permutaciones.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Empleadas:} aplican una variación (swap o inversión) a su
+  fuente y la aceptan si no empeora.
+\item
+  \textbf{Observadoras:} eligen una fuente con probabilidad ∝ 1/(1 + f),
+  es decir, siguen a las fuentes prometedoras.
+\item
+  \textbf{Exploradoras:} abandonan una fuente sin mejora estricta en
+  \texttt{limit} intentos y la reemplazan por una permutación aleatoria.
+\end{itemize}
+
+{[}sources = 5, limit = 2000{]}
+
+\subsection{\texorpdfstring{3.5 Evolución Diferencial (DE)
+(\texttt{src/algorithms/de.py})}{3.5 Evolución Diferencial (DE) (src/algorithms/de.py)}}\label{evoluciuxf3n-diferencial-de-srcalgorithmsde.py}
+
+La DE es continua por naturaleza. Para adaptarla a permutaciones se usan
+\textbf{claves aleatorias} (Bean, 1994): cada individuo es un vector x ∈
+{[}0,1{]}ⁿ y se decodifica con SPV. La mutación DE/rand/1 (v = x\_r1 +
+F·(x\_r2 − x\_r3)) y la cruza binomial operan en el espacio continuo, y
+la selección es voraz. Así nunca se generan permutaciones ilegales.
+{[}pop\_size = 10, F = 0.7, CR = 0.9{]}
+
+\subsection{\texorpdfstring{3.6 Enjambre de Partículas (PSO)
+(\texttt{src/algorithms/pso.py})}{3.6 Enjambre de Partículas (PSO) (src/algorithms/pso.py)}}\label{enjambre-de-partuxedculas-pso-srcalgorithmspso.py}
+
+Cada partícula es un vector de claves con velocidad, decodificado por
+SPV (Tasgetiren et al., 2007). La velocidad se actualiza con la regla
+estándar v ← w·v + c₁r₁(pbest − x) + c₂r₂(gbest − x), con topología
+global y velocidad acotada. No hay líder: cada partícula solo sigue
+reglas simples con su mejor posición y la del enjambre. {[}swarm = 50, w
+= 0.7, c₁ = c₂ = 1.5, vmax = 0.5{]}
+
+\subsection{3.7 Línea base}\label{luxednea-base}
+
+\texttt{random\_search} muestrea permutaciones aleatorias. Sirve de
+piso: un algoritmo que no la supera no aprende nada de la estructura del
+grafo.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{4. Dataset y diseño
+experimental}\label{dataset-y-diseuxf1o-experimental}
+
+\subsection{4.1 Instancias}\label{instancias}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Instancia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+n
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+m
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Grado mín./máx.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Vértices de grado 2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Aristas eliminadas por preproceso
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+graph1 & 66 & 99 & 3 / 3 & 0 & 0 \\
+graph24 & 198 & 297 & 3 / 3 & 0 & 0 \\
+graph41 & 300 & 451 & 3 / 4 & 0 & 0 \\
+graph172 & 1002 & 1575 & 2 / 9 & 340 & 10 (672 aristas forzadas) \\
+graph300* & 1815 & 3177 & 2 / 154 & 606 & 10 (1211 aristas forzadas) \\
+graph600* & 3468 & 5203 & 3 / 4 & 0 & 0 \\
+\end{longtable}
+}
+
+* Solo en la ronda pesada.
+
+\textbf{Procedencia y verificación.} Las instancias provienen del FHCP
+Challenge Set: \texttt{data/FHCPCS.7z} trae los 1001 grafos y
+\texttt{data/catalogo\_fhcp.csv} los cataloga con n, m, grados y sha256.
+El registro local declara una copia pública del conjunto, mientras que la procedencia oficial del archivo comprimido no está certificada en la evidencia revisada. Los saltos de línea CRLF y LF pueden producir hashes distintos aun para el mismo grafo; una comparación reproducible debe normalizarlos y verificar las aristas. Por tanto, se mantiene pendiente documentar la descarga oficial y su comparación con la copia utilizada.
+
+\subsection{4.2 Protocolo}\label{protocolo}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Ronda
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Instancias
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Algoritmos
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Semillas
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Presupuesto
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Archivo
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Benchmark principal} & graph1, 24, 41, 172 & los 10 + aleatoria
+& 0..9 & 100 000 evaluaciones, tope 15 s & \texttt{results/}\allowbreak\texttt{bench\_*} \\
+Pesada & + graph300, 600 & ga, sa\_2opt, aco, bee, aco\_ls, aco\_ls\_pre
+& 0..9 & 60 s (evaluaciones sin límite práctico) &
+\texttt{results/}\allowbreak\texttt{pesada\_*} \\
+Media & graph1, 24, 41, 172 & ga, sa\_2opt, aco\_ls & 0..4 & 30 s &
+\texttt{results/}\allowbreak\texttt{media\_*} \\
+\end{longtable}
+}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Comparación justa:} 1 iteración = 1 evaluación de fitness en
+  todos los algoritmos. El tope de tiempo impide que los algoritmos con
+  evaluaciones caras (GA-ER, ACO, ACO+LS) excedan el presupuesto. En ACO
+  + LS, una iteración incluye la búsqueda local, así que su límite
+  efectivo es el tiempo.
+\item
+  \textbf{Validación:} todo tour con f = 0 se re-valida con
+  \texttt{validate()}. La columna \texttt{validado} de la tabla resumen
+  vale 1 en todas las filas: \textbf{0 falsos positivos}.
+\item
+  \textbf{Entornos:} el benchmark principal se corrió en Python 3.12.3
+  (Linux x86\_64; las 40 corridas de SA (swap) se repitieron el
+  12/11/2026 con los parámetros de 4.3, ver nota en 5.2) y las rondas
+  pesada/media en Python 3.14.6 (Linux x86\_64, 8 núcleos, ejecución en
+  paralelo). La ejecución paralela puede introducir competencia por recursos. Los tiempos requieren cautela incluso dentro de una ronda y no deben compararse directamente entre entornos distintos.
+\end{itemize}
+
+\subsection{4.3 Ajuste de parámetros}\label{ajuste-de-paruxe1metros}
+
+Se hizo un barrido por rejilla (\texttt{experiments/tuning.py},
+resultados en \texttt{results/tuning.csv}) sobre graph1 y graph24 con
+las semillas 100--102, \textbf{distintas de las del benchmark} para no
+sobreajustar. El presupuesto fue de 30 000 evaluaciones y 8 s. Métrica:
+fitness final medio / n.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Algoritmo & Mejores parámetros & Fitness normalizado \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ACO & ants = 5, β = 2.0 (empate) & 0.011 \\
+SA (2-opt) & t₀ = 0.3, t\_end = 0.02 & 0.096 \\
+GA & pop\_size = 50, pm = 0.3 & 0.243 \\
+SA (swap) & t₀ = 2.0, t\_end = 0.01 (ver abajo) & 0.223 \\
+Bee & sources = 5, limit = 2000 & 0.295 \\
+DE & pop\_size = 10, F = 0.7, CR = 0.9 & 0.624 \\
+PSO & swarm = 50, w = 0.7, vmax = 0.5 & 0.767 \\
+\end{longtable}
+}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{ACO:} ants = 5, β = 2 empató con ants = 10, β = 5 (0.01094 los
+  dos). Se eligió 5/2 porque con menos hormigas por iteración la
+  feromona se actualiza más seguido con el mismo presupuesto, y β = 2 es
+  el valor habitual en MMAS (Stützle y Hoos, 2000).
+\item
+  \textbf{SA (swap):} el primer barrido (30 000 evaluaciones) eligió t₀
+  = 0.1, t\_end = 0.05. Con esa temperatura un empeoramiento de 1 se
+  acepta con probabilidad e⁻¹⁰ ≈ 0.00005, así que SA se comportaba como
+  un descenso que solo acepta mejoras, y no como el recocido que pide la
+  práctica. Se repitió el ajuste con el presupuesto real del benchmark
+  (100 000 evaluaciones, \texttt{results/tuning\_sa.csv}). Las
+  temperaturas casi nulas siguen siendo ligeramente mejores (0.204
+  contra 0.223), pero se eligió la mejor configuración con t₀ ≥ 1,
+  \textbf{t₀ = 2.0 y t\_end = 0.01}, para que SA acepte de verdad
+  soluciones peores al inicio y enfríe lentamente. La diferencia entre
+  temperaturas es pequeña frente a la que produce el vecindario (sección
+  7).
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{5. Comparativa de resultados (núcleo de la
+práctica)}\label{comparativa-de-resultados-nuxfacleo-de-la-pruxe1ctica}
+
+\subsection{5.1 Tasa de éxito y calidad (benchmark
+principal)}\label{tasa-de-uxe9xito-y-calidad-benchmark-principal}
+
+Cada celda indica \textbf{éxitos/10 · fitness mediano · mejor fitness}
+(aristas faltantes; 0 = ciclo hamiltoniano):
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Algoritmo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph1 (n=66)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph24 (n=198)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph41 (n=300)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph172 (n=1002)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{ACO + 2-opt + prepro.} & \textbf{10/10 · 0 · 0} & 0/10 · 1 · 1 &
+0/10 · 1 · 1 & 0/10 · 12 · 9 \\
+\textbf{ACO + 2-opt} & \textbf{10/10 · 0 · 0} & 0/10 · 1 · 1 & 0/10 · 1
+· 1 & 0/10 · 13.5 · 9 \\
+ACO & 0/10 · 1 · 1 & 0/10 · 1.5 · 1 & 0/10 · 1 · 1 & 0/10 · 16 · 13 \\
+GA (ER) & 0/10 · 4.5 · 4 & 0/10 · 47.5 · 43 & 0/10 · 154 · 145 & 0/10 ·
+911.5 · 898 \\
+GA & 0/10 · 5.5 · 3 & 0/10 · 31.5 · 29 & 0/10 · 81 · 77 & 0/10 · 604.5 ·
+594 \\
+SA (2-opt) & 0/10 · 1 · 1 & 0/10 · 16 · 11 & 0/10 · 42.5 · 37 & 0/10 ·
+634 · 622 \\
+SA (swap) & 0/10 · 10.5 · 7 & 0/10 · 60.5 · 57 & 0/10 · 114 · 110 & 0/10
+· 680 · 671 \\
+Bee Colony & 0/10 · 4 · 2 & 0/10 · 55.5 · 51 & 0/10 · 131 · 125 & 0/10 ·
+844 · 832 \\
+DE & 0/10 · 29 · 26 & 0/10 · 129.5 · 124 & 0/10 · 219 · 210 & 0/10 ·
+900.5 · 888 \\
+PSO & 0/10 · 44 · 38 & 0/10 · 173 · 164 & 0/10 · 274 · 270 & 0/10 · 971
+· 964 \\
+Aleatoria & 0/10 · 53.5 · 52 & 0/10 · 185.5 · 184 & 0/10 · 287 · 286 &
+0/10 · 989 · 986 \\
+\end{longtable}
+}
+
+El IC 95 \% de Wilson de la tasa de éxito es {[}0.72, 1.00{]} para 10/10
+y {[}0.00, 0.28{]} para 0/10.
+
+\begin{figure}[H]
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={Tasa de éxito}]{results/analisis/fig_tasa_exito.png}}
+\caption{Tasa de éxito}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={Distribución del fitness final}]{results/analisis/fig_fitness_boxplot.png}}
+\caption{Distribución del fitness final}
+\end{figure}
+
+\subsection{5.2 Tiempo computacional}\label{tiempo-computacional}
+
+Cada celda indica \textbf{tiempo medio por corrida / evaluaciones
+medias}:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Algoritmo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph24
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph41
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph172
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ACO + 2-opt + prepro. & 0.48 s / 532 & 15.00 s / 7 103 & 15.00 s / 3 392
+& 15.01 s / 554 \\
+ACO + 2-opt & 0.49 s / 532 & 15.00 s / 7 331 & 15.00 s / 3 339 & 15.01 s
+/ 544 \\
+ACO & 6.75 s / 100 000 & 15.00 s / 72 750 & 15.00 s / 44 590 & 15.00 s /
+11 460 \\
+GA (ER) & 7.78 s / 100 000 & 15.00 s / 68 368 & 15.00 s / 40 432 & 15.00
+s / 9 987 \\
+GA & 1.16 s / 100 000 & 2.20 s / 100 000 & 3.52 s / 100 000 & 13.77 s /
+100 000 \\
+SA (2-opt) & 0.12 s / 100 000 & 0.11 s / 100 000 & 0.17 s / 100 000 &
+0.43 s / 100 000 \\
+SA (swap)† & 0.22 s / 100 000 & 0.21 s / 100 000 & 0.24 s / 100 000 &
+0.25 s / 100 000 \\
+Bee Colony & 0.14 s / 100 000 & 0.14 s / 100 000 & 0.20 s / 100 000 &
+0.46 s / 100 000 \\
+DE & 1.03 s / 100 000 & 1.96 s / 100 000 & 2.87 s / 100 000 & 11.72 s /
+100 000 \\
+PSO & 1.19 s / 100 000 & 2.17 s / 100 000 & 3.21 s / 100 000 & 12.99 s /
+100 000 \\
+Aleatoria & 1.19 s / 100 000 & 3.45 s / 100 000 & 5.84 s / 100 000 &
+15.00 s / 61 505 \\
+\end{longtable}
+}
+
+† Las corridas de SA (swap) se repitieron con los parámetros nuevos en
+otra máquina (Python 3.12.3, Linux x86\_64, 12 núcleos, ejecución
+secuencial; ver \texttt{results/bench\_entorno.txt}). Su tiempo no es
+directamente comparable con el resto de la tabla; el número de
+evaluaciones sí.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{ERT} de ACO + 2-opt en graph1: \textbf{532.5 evaluaciones}
+  (≈0.5 s). Es el único caso con éxito en el benchmark principal.
+\item
+  \textbf{Costo por evaluación.} SA y Bee usan delta en O(1) y hacen 100
+  000 movimientos en 0.1--0.5 s. GA, DE y PSO evalúan permutaciones
+  completas en O(n), unas 10--100 veces más caro. ACO construye cada
+  ruta en O(n·grado) y con búsqueda local cada hormiga cuesta mucho más
+  (\textasciitilde1 ms en graph1), pero cada evaluación vale mucho más.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={Tiempo}]{results/analisis/fig_tiempo.png}}
+\caption{Tiempo}
+\end{figure}
+
+\subsection{5.3 Convergencia}\label{convergencia}
+
+La figura muestra la mediana del mejor fitness frente a las evaluaciones
+(escala log). ACO y ACO + 2-opt llegan casi a 0 con pocas evaluaciones,
+porque construyen rutas sobre aristas reales. SA (2-opt) y Bee bajan
+rápido y se estancan. SA (swap) se queda cerca de la búsqueda aleatoria
+durante las primeras \textasciitilde10 000 evaluaciones, porque a
+temperatura alta acepta muchos empeoramientos, y desciende cuando la
+temperatura baja. DE y PSO apenas se separan de la búsqueda aleatoria.
+
+\begin{figure}[H]
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={Convergencia}]{results/analisis/fig_convergencia.png}}
+\caption{Convergencia}
+\end{figure}
+
+\subsection{5.4 Precisión, recall y F1}\label{precisiuxf3n-recall-y-f1}
+
+Datos de \texttt{results/analisis/metricas\_clasificacion.csv}:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Algoritmo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Precisión (corrida)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Recall = tasa de éxito
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+F1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Precisión de aristas: g1 / g24 / g41 / g172
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ACO + 2-opt + prepro. & 1.00 & g1: 1.00; resto: 0 & g1: 1.00; resto: 0 &
+1.000 / 0.995 / 0.997 / 0.988 \\
+ACO + 2-opt & 1.00 & g1: 1.00; resto: 0 & g1: 1.00; resto: 0 & 1.000 /
+0.995 / 0.997 / 0.987 \\
+ACO & n/d & 0 & 0 & 0.985 / 0.991 / 0.995 / 0.984 \\
+SA (2-opt) & n/d & 0 & 0 & 0.983 / 0.921 / 0.859 / 0.366 \\
+GA & n/d & 0 & 0 & 0.920 / 0.839 / 0.728 / 0.397 \\
+Bee Colony & n/d & 0 & 0 & 0.938 / 0.722 / 0.565 / 0.159 \\
+GA (ER) & n/d & 0 & 0 & 0.924 / 0.758 / 0.488 / 0.093 \\
+SA (swap) & n/d & 0 & 0 & 0.852 / 0.694 / 0.618 / 0.320 \\
+DE & n/d & 0 & 0 & 0.562 / 0.335 / 0.260 / 0.099 \\
+PSO & n/d & 0 & 0 & 0.348 / 0.133 / 0.087 / 0.031 \\
+Aleatoria & n/d & 0 & 0 & 0.191 / 0.064 / 0.043 / 0.013 \\
+\end{longtable}
+}
+
+La precisión por corrida es 1.00 siempre que hay positivos reportados:
+\textbf{no hubo ningún falso positivo}, porque todo ciclo reportado pasó
+el validador independiente. Es ``n/d'' cuando el algoritmo nunca reportó
+un ciclo. El recall, que coincide con la tasa de éxito, es la métrica
+que separa a los algoritmos. La precisión de aristas mide qué tan cerca
+se quedó cada algoritmo de un ciclo cuando falló.
+
+\subsection{5.5 Significancia
+estadística}\label{significancia-estaduxedstica}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Kruskal-Wallis} por instancia: p \textless{} 10⁻¹⁶ en las 4
+  instancias (entre 4.7·10⁻¹⁷ y 9.0·10⁻¹⁷). Los algoritmos difieren.
+\item
+  \textbf{Mann-Whitney + Holm}, comparando el mejor (ACO + 2-opt +
+  prepro.) con cada uno de los demás: la diferencia es significativa al
+  5 \% frente a \textbf{todos} los algoritmos en las 4 instancias,
+  excepto frente a ACO + 2-opt sin preprocesamiento (p\_Holm = 1.0, 1.0,
+  1.0, 0.30). Ver \texttt{results/analisis/pruebas\_estadisticas.csv}.
+\item
+  \textbf{Friedman} entre instancias: χ² = 33.8, \textbf{p = 0.0001}.
+  Rangos medios (1 = mejor):
+\end{itemize}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ACO +\allowbreak 2opt +\allowbreak pre
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ACO +\allowbreak 2opt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ACO
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+SA (2-opt)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+GA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bee
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+SA (swap)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+GA (ER)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+PSO
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1.38 & 1.62 & 3.00 & 4.25 & 5.25 & 6.50 & 7.00 & 7.25 & 8.75 & 10.00 \\
+\end{longtable}
+}
+
+\subsection{5.6 Ronda pesada (60 s por
+corrida)}\label{ronda-pesada-60-s-por-corrida}
+
+Cada celda indica \textbf{éxitos/10 · fitness mediano · mejor fitness}:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1428}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1428}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1428}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1428}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1428}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1428}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1428}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Algoritmo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph1 (66)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph24 (198)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph41 (300)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph172 (1002)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph300 (1815)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+graph600 (3468)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ACO + 2-opt + prepro. & \textbf{10/10 · 0 · 0} & 0/10 · 1 · 1 & 0/10 · 1
+· 1 & 0/10 · 7.5 · \textbf{4} & 0/10 · 70.5 · 65 & 0/10 · 170 · 166 \\
+ACO + 2-opt & \textbf{10/10 · 0 · 0} & 0/10 · 1 · 1 & 0/10 · 1 · 1 &
+0/10 · 6.5 · 5 & 0/10 · 69 · 58 & 0/10 · 170 · 166 \\
+ACO & 0/10 · 1 · 1 & 0/10 · 1.5 · 1 & 0/10 · 1 · 1 & 0/10 · 16 · 13 &
+0/10 · \textbf{33 · 18} & 0/10 · \textbf{145 · 134} \\
+SA (2-opt) & \textbf{5/10 · 0.5 · 0} & 0/10 · 1 · 1 & 0/10 · 1 · 1 &
+0/10 · 25.5 · 20 & 0/10 · 133.5 · 119 & 0/10 · 969 · 901 \\
+GA & 0/10 · 4 · 3 & 0/10 · 18 · 15 & 0/10 · 28.5 · 24 & 0/10 · 563 · 551
+& 0/10 · 1470.5 · 1421 & 0/10 · 3296.5 · 3286 \\
+Bee Colony & 0/10 · 2 · 1 & 0/10 · 30 · 28 & 0/10 · 71.5 · 70 & 0/10 ·
+549 · 526 & 0/10 · 1302 · 1262 & 0/10 · 3124 · 3028 \\
+\end{longtable}
+}
+
+\begin{itemize}
+\tightlist
+\item
+  Con 60 s, \textbf{SA (2-opt) también resuelve graph1} (5/10). Las 5
+  corridas exitosas tardaron en promedio 39.7 s y 1.2·10⁷ movimientos;
+  las otras 5 agotaron los 60 s. Es la segunda metaheurística del
+  proyecto que encuentra un ciclo hamiltoniano del set.
+\item
+  En los grafos más grandes (graph300, graph600), \textbf{ACO sin
+  búsqueda local supera a ACO + 2-opt}. Con n ≥ 1815, la búsqueda local
+  deja solo \textasciitilde70--200 hormigas en 60 s y la feromona no
+  alcanza a aprender. Friedman en esta ronda: χ² = 23.6, p = 0.0003.
+  Análisis completo en \texttt{results/analisis\_pesada/}.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{6. Benchmarking contra el FHCP
+Challenge}\label{benchmarking-contra-el-fhcp-challenge}
+
+\subsection{6.1 Resultados oficiales del
+reto}\label{resultados-oficiales-del-reto}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Equipo & Grafos resueltos (de 1001) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+N. Cohen y D. Coudert (INRIA, Francia), ganadores & \textbf{985} \\
+Johnson (IBM, Reino Unido) & 614 \\
+Gharbi y Syarif (King Saud University) & 488 \\
+Noisternig (TU Darmstadt) & 464 \\
+Nurhafiz (independiente) & 385 \\
+\end{longtable}
+}
+
+Fuente: Haythorpe (2018) y la página oficial del FHCP. Ningún equipo
+resolvió los 1001. Los 16 grafos que quedaron sin resolver son
+instancias derivadas de grafos de Stedman (Sted4, Sted5, Sted6 y 13
+combinaciones que los contienen). Los ganadores descompusieron las
+instancias, buscaron estructuras repetidas entre ellas y reutilizaron
+soluciones de subgrafos. En la construcción del set se usaron como
+referencia resolvedores especializados del TSP/HCP: Concorde (exacto,
+\emph{branch-and-cut}) y LKH (heurística de Lin-Kernighan-Helsgaun).
+
+\subsection{6.2 Contraste con este
+proyecto}\label{contraste-con-este-proyecto}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Aspecto
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mejores del FHCP
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Este proyecto
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Instancias resueltas & 985/1001 (ganadores); 385--614 (resto de los
+equipos) & \textbf{1} de 6 probadas (graph1, n = 66) \\
+Tamaño máximo atacado & hasta 9528 vértices & 3468 vértices \\
+Mejor resultado parcial & n/a (solo cuentan ciclos completos) & Camino
+hamiltoniano (f = 1) en graph24 y graph41; f = 4 en graph172 \\
+Técnicas & Descomposición estructural, reducción al TSP, Concorde/LKH,
+búsqueda local profunda, días de cómputo & Metaheurísticas genéricas,
+15--60 s por corrida, Python puro \\
+\end{longtable}
+}
+
+\textbf{Análisis.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Brecha de calidad.} Con la métrica oficial (instancias con
+  ciclo válido), las metaheurísticas genéricas quedan muy lejos de los
+  resolvedores especializados. Incluso graph1, la instancia más pequeña del set, solo se resolvió con búsqueda local dirigida (2-opt + rotaciones
+  de Pósa). Es justo el tipo de componente que tienen LKH y los
+  resolvedores ganadores.
+\item
+  \textbf{``Casi'' no cuenta.} En graph24 y graph41 los mejores
+  algoritmos encuentran caminos hamiltonianos (99.5--99.7 \% de aristas
+  correctas) pero no logran cerrar el ciclo. En estas corridas, la búsqueda alcanza rutas casi correctas, pero se estanca antes de cerrar el ciclo; el experimento no mide cuántos ciclos existen en cada grafo. Una heurística que
+  solo mide aristas faltantes ve una meseta enorme en f = 1.
+\item
+  \textbf{Estructura.} Las instancias graph1 y graph24 son cúbicas (grado 3); graph41 incluye grado 4. Ninguna de esas tres tiene vértices de grado 2, así que el preprocesamiento de aristas
+  forzadas no cambia nada en ellos. Por eso aco\_ls y aco\_ls\_pre dan
+  resultados idénticos en graph1/24/41. En graph172 y graph300 fija 672
+  y 1211 aristas, pero el efecto no es significativo (p\_Holm = 0.30 en
+  graph172; en la ronda pesada el mejor f baja de 5 a 4, aunque la
+  mediana sube de 6.5 a 7.5). Los ganadores explotaron esta clase de
+  estructura a gran escala.
+\item
+  \textbf{Escala.} El costo de la búsqueda local en Python limita a ACO
+  + 2-opt en n ≥ 1000. Una implementación compilada podría reducir este costo; su mejora concreta debe medirse experimentalmente.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{7. Conclusiones}\label{conclusiones}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{ACO fue la metaheurística que mejor se adaptó a los cuellos de
+  botella de los grafos difíciles.} Construye las rutas \textbf{sobre
+  aristas reales} con la regla de Warnsdorff, así que nunca propone
+  aristas inexistentes salvo en callejones sin salida, y la feromona
+  aprende qué aristas conectan los nodos difíciles. Sola, llega a f = 1
+  en graph1/24/41. Con búsqueda local 2-opt + Pósa, \textbf{resuelve
+  graph1 en 10/10 corridas en medio segundo} y queda primera en el
+  ranking de Friedman (p = 0.0001).
+\item
+  \textbf{SA es la segunda mejor opción si se usa el vecindario
+  adecuado.} SA con swap, como lo pide el enunciado, cambia 4 aristas
+  por movimiento y se estanca. SA con 2-opt cambia solo 2: reduce el
+  fitness mediano entre 2.7 y 10.5 veces en n ≤ 300 (7 \% en graph172) y
+  con 60 s resolvió graph1 en 5/10 corridas. La representación y el
+  vecindario pesan más que el esquema de enfriamiento: cambiar la
+  temperatura de SA (swap) movió el fitness ≈10 \% (sección 4.3),
+  mientras que cambiar el vecindario lo movió hasta 10 veces.
+\item
+  \textbf{GA y Bee Colony} mejoran claramente a la búsqueda aleatoria,
+  pero se degradan rápido con n.~La cruza OX conserva el orden pero
+  rompe aristas. La recombinación de aristas (GA-ER) es mejor por
+  evaluación, pero cuesta 7 veces más y con tope de tiempo quedó peor.
+\item
+  \textbf{DE y PSO con claves aleatorias no son adecuados para este
+  problema.} El mapeo continuo → permutación (SPV) destruye la
+  localidad: un cambio pequeño en las claves reordena muchos vértices.
+  Por eso su fitness queda cerca de la búsqueda aleatoria, sobre todo en
+  n = 1002.
+\item
+  \textbf{Lección central.} Ante grafos ``engañosos'', lo que funcionó
+  fue \textbf{explotar la estructura del grafo}: construir solo sobre
+  aristas reales, búsqueda local dirigida a las aristas faltantes,
+  movimientos neutros para cruzar mesetas y aristas forzadas. Ajustar
+  más los parámetros de un algoritmo ciego a la estructura no habría
+  dado ese resultado. Es la misma conclusión que se desprende de los
+  resultados del reto oficial.
+\end{enumerate}
+
+\textbf{Trabajo futuro:} usar un fitness que distinga caminos según qué
+tan cerca estén sus extremos de cerrarse; añadir movimientos 3-opt /
+Or-opt; reiniciar la búsqueda desde varios extremos con rotaciones de
+Pósa; reimplementar el núcleo en C/Numba; y probar sobre un subconjunto
+mayor del set (el catálogo ya permite seleccionar por n).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{8. Reproducibilidad}\label{reproducibilidad}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{pip}\NormalTok{ install }\AttributeTok{{-}r}\NormalTok{ requirements.txt}
+\ExtensionTok{python} \AttributeTok{{-}m}\NormalTok{ pytest                          }\CommentTok{\# 48 pruebas pasan, 1 omitida}
+\CommentTok{\# Extraer data/FHCPCS.7z en data/instances/}
+
+\CommentTok{\# Resolver una instancia (devuelve el arreglo de vértices y guarda el .tour si es válido)}
+\ExtensionTok{python} \AttributeTok{{-}m}\NormalTok{ experiments.resolver }\AttributeTok{{-}{-}instance}\NormalTok{ data/test_instances/graph1.hcp }\AttributeTok{{-}{-}algorithm}\NormalTok{ aco\_ls }\AttributeTok{{-}{-}time{-}limit}\NormalTok{ 30}
+
+\CommentTok{\# Benchmark principal y análisis (tablas, pruebas, métricas F1 y figuras)}
+\ExtensionTok{python} \AttributeTok{{-}m}\NormalTok{ experiments.benchmark }\AttributeTok{{-}{-}instances}\NormalTok{ data/test_instances/graph1.hcp data/test_instances/graph24.hcp }\DataTypeTok{\textbackslash{}}
+\NormalTok{    data/test_instances/graph41.hcp data/test_instances/graph172.hcp }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}algorithms}\NormalTok{ ga ga\_er sa sa\_2opt aco aco\_ls aco\_ls\_pre bee de pso random\_search }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}seeds}\NormalTok{ 10 }\AttributeTok{{-}{-}max{-}evals}\NormalTok{ 100000 }\AttributeTok{{-}{-}time{-}limit}\NormalTok{ 15 }\AttributeTok{{-}{-}out}\NormalTok{ results/bench }\AttributeTok{{-}{-}tours}\NormalTok{ results/tours}
+\ExtensionTok{python} \AttributeTok{{-}m}\NormalTok{ experiments.tuning }\AttributeTok{{-}{-}out}\NormalTok{ results/tuning.csv}
+\ExtensionTok{python} \AttributeTok{{-}m}\NormalTok{ experiments.tuning }\AttributeTok{{-}{-}out}\NormalTok{ results/tuning\_sa.csv }\AttributeTok{{-}{-}algs}\NormalTok{ sa }\AttributeTok{{-}{-}evals}\NormalTok{ 100000 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}grid} \StringTok{\textquotesingle{}\{"t0": [0.1, 0.5, 1.0, 2.0, 3.0], "t\_end": [0.01, 0.02, 0.05, 0.1]\}\textquotesingle{}}
+\ExtensionTok{python} \AttributeTok{{-}m}\NormalTok{ experiments.analisis }\AttributeTok{{-}{-}prefix}\NormalTok{ results/bench  }\AttributeTok{{-}{-}out}\NormalTok{ results/analisis}
+\ExtensionTok{python} \AttributeTok{{-}m}\NormalTok{ experiments.analisis }\AttributeTok{{-}{-}prefix}\NormalTok{ results/pesada }\AttributeTok{{-}{-}out}\NormalTok{ results/analisis\_pesada}
+\end{Highlighting}
+\end{Shaded}
+
+Los ciclos hamiltonianos encontrados para graph1 (20 en
+\texttt{results/tours/} y 25 en \texttt{results/tours\_pesada/}) están
+en formato TOUR del FHCP.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\clearpage
+\section{9. Verificación de requisitos de la
+práctica}\label{verificaciuxf3n-de-requisitos-de-la-pruxe1ctica}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Requisito de \texttt{practica.pdf}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Dónde se cumple
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+F1: Teoría de grafos y ciclos hamiltonianos (longitud n) & §1.1 \\
+F1: Representación del espacio de búsqueda sin estructuras ilegales &
+§1.2, §2.2 \\
+F1: Decodificación, fitness y heurísticas & §1.3, §2.2 \\
+F1: Métricas (costo, iteraciones, precisión, recall, F1) & §1.4, §5.2,
+§5.4 \\
+F1: Estándares, formatos y criterios del FHCP & §1.5 \\
+F2: Problema del ciclo hamiltoniano, NP-difícil, relación con TSP &
+§1.1 \\
+F2: Dataset FHCP Challenge Set & §4.1 \\
+F3: GA (base de control) & §3.1 \\
+F3: SA con swaps y enfriamiento lento & §3.2 \\
+F3: ACO y Bee Colony (cooperación de enjambre) & §3.3, §3.4 \\
+F3: DE adaptada a permutaciones & §3.5 \\
+F3: PSO & §3.6 \\
+F4.1: Código que carga grafos FHCP y devuelve un arreglo de vértices &
+\texttt{src/}, \texttt{experiments/resolver.py}, §2.3 \\
+F4.2: Definición algorítmica del grafo y fundamentación teórica & §1.1,
+§2.1 \\
+F4.2: Mapeo de representación y función de fitness & §2.2 \\
+F4.2: Comparativa (tasa de éxito y tiempo) en tablas y gráficos & §5 \\
+F4.2: Benchmarking contra el FHCP Challenge & §6 \\
+F4.2: Conclusiones sobre la metaheurística que mejor se adaptó & §7 \\
+\end{longtable}
+}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+
+\clearpage
+\section{10. Guía explicada de la implementación y del uso}
+\subsection{Del archivo de entrada a una solución validada}
+El recorrido del programa es: leer el archivo HCP, construir el grafo, seleccionar el algoritmo, generar candidatos, evaluarlos, conservar el mejor y validarlo. El lector está en \texttt{src/core/hcp\_io.py}; el modelo del grafo, en \texttt{src/core/graph.py}; y la evaluación y validación, en \texttt{src/core/fitness.py}. El registro de \texttt{src/algorithms/\_\_init\_\_.py} permite elegir la implementación por nombre.
+
+La configuración común fija evaluaciones máximas, tiempo límite y parámetros específicos. El resultado contiene la mejor ruta, su costo, el historial de mejoras, el tiempo y las evaluaciones. El presupuesto se consulta durante la búsqueda; no es un corte externo exacto, por lo que una operación en curso puede producir un pequeño exceso de tiempo. La misma semilla hace reproducibles las decisiones aleatorias, pero un corte por tiempo puede cambiar la cantidad de trabajo ejecutado según el equipo.
+
+\subsection{Ejemplo de representación, costo y cierre}
+En el grafo de seis vértices \texttt{envelope6.hcp}, la ruta externa $(1,2,3,6,5,4)$ utiliza las aristas $1\!:\!2$, $2\!:\!3$, $3\!:\!6$, $6\!:\!5$, $5\!:\!4$ y $4\!:\!1$. Todas existen y el costo es cero. El arreglo contiene seis posiciones; no se agrega otro 1 al arreglo porque el regreso al origen es implícito. Internamente se almacena $(0,1,2,5,4,3)$.
+
+La ruta $(1,2,3,4,5,6)$ también es una permutación legal, pero falta la arista $6\!:\!1$: su costo es uno. Esto distingue \emph{legalidad de la representación} de \emph{validez del ciclo}. Para $n=6$, la fracción de aristas existentes es $5/6$. Esa cercanía no basta para declarar éxito.
+
+\subsection{Cómo trabaja cada método, paso a paso}
+\textbf{GA.} Inicializa una población de permutaciones; selecciona padres por torneo; aplica cruza OX para conservar una parte del orden sin repetir vértices; muta por inversión; evalúa descendientes; y conserva élites. La población aporta diversidad y el elitismo protege las mejores rutas. Sin embargo, conservar orden no implica conservar aristas, por lo que una cruza puede deshacer conexiones útiles. La variante ER intenta heredar conexiones entre vértices.
+
+\textbf{SA.} Comienza con una ruta y propone intercambiar dos posiciones. Si el costo disminuye o permanece igual, acepta el cambio; si aumenta en $\Delta$, lo acepta con probabilidad $\exp(-\Delta/T)$. A temperatura alta explora; al enfriarse se vuelve más selectivo. Por ejemplo, con $\Delta=1$ y $T=2$, la probabilidad es aproximadamente 0.607; con $T=0.01$, es prácticamente cero. Se conserva aparte el mejor candidato para no perderlo al aceptar un empeoramiento. La variante 2-opt invierte un segmento y cambia otro vecindario, sin sustituir al SA con swaps exigido.
+
+\textbf{ACO.} Varias hormigas construyen rutas. Entre vecinos disponibles se combinan la feromona, que recoge experiencia compartida, y una preferencia heurística por vértices con pocas opciones libres. Si una hormiga queda bloqueada, completa mediante un salto penalizado. Tras construir rutas, la evaporación reduce memoria antigua y el depósito refuerza conexiones prometedoras. La variante con búsqueda local intenta corregir aristas faltantes antes de actualizar el mejor resultado.
+
+\textbf{Colonia de abejas.} Cada fuente representa una ruta y su costo mide su calidad. Las empleadas modifican su fuente; las observadoras dedican más intentos a fuentes de mejor costo; las exploradoras reemplazan fuentes estancadas. La información compartida es la calidad de las fuentes. Esta implementación ABC no usa una matriz de feromonas: ese mecanismo corresponde a ACO. Su cooperación se basa en selección probabilística y abandono, una distinción importante al interpretar el enunciado.
+
+\textbf{DE.} Representa cada candidato con un vector de claves reales. Combina tres vectores mediante una diferencia escalada y aplica cruza binomial; después ordena las claves para obtener la permutación y evalúa esa ruta. Si mejora o empata al padre, lo reemplaza. Por ejemplo, las claves $(0.3,0.1,0.4,0.2)$ se decodifican como los índices $(1,3,0,2)$. El ordenamiento garantiza que cada índice aparezca una sola vez, aunque puede transformar cambios pequeños de claves en cambios grandes de conexiones.
+
+\textbf{PSO.} Cada partícula mantiene claves, velocidad, su mejor posición y la mejor conocida por el enjambre. La inercia conserva parte del movimiento; el componente cognitivo atrae al mejor personal; el social atrae al mejor compartido. Cada nueva posición se ordena para producir una permutación. El mejor global es una referencia compartida, no un agente que ejecute las decisiones de las demás partículas. La adaptación conserva rutas legales, pero no garantiza buena localidad en el espacio de aristas.
+
+\subsection{Cómo interpretar las métricas sin confundirlas}
+La tasa de éxito responde qué proporción de corridas encontró un ciclo completo; el fitness responde cuántas aristas faltaron. El tiempo mide el costo observado en el entorno de ejecución. Reportar las tres evita considerar ganador a un método que termina rápido pero no resuelve, o a uno que reduce el costo sin llegar a cero.
+
+Las fórmulas de clasificación son $P=TP/(TP+FP)$, $R=TP/(TP+FN)$ y $F_1=2PR/(P+R)$. Si no se reporta ningún positivo, la precisión no está definida y se indica como no disponible. Si hay positivos reales y no se encuentra ninguno, el recall es cero; aquí se usa F1 igual a cero para ese caso. Al ser todas las instancias hamiltonianas, no se estima especificidad ni capacidad para reconocer grafos no hamiltonianos. Las pruebas estadísticas complementan los tamaños de efecto, sin convertir cuatro instancias en una muestra representativa de todo el FHCP.
+
+Contar evaluaciones aproxima el esfuerzo, pero no lo iguala: una evaluación incremental de SA puede ser mucho más barata que construir y refinar una ruta en ACO. La búsqueda local realiza trabajo adicional dentro de una hormiga. Por ello se deben leer juntas las columnas de evaluaciones y tiempo. La ronda pesada no debe mezclarse con la principal como si usaran el mismo presupuesto.
+
+\subsection{Instalación y primera ejecución}
+Se requiere Python 3.10 o posterior por la sintaxis de tipos utilizada. Desde la raíz del proyecto:
+\begin{Verbatim}[fontsize=\small,breaklines=true]
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m experiments.interfaz
+\end{Verbatim}
+En Linux, si falta el módulo de interfaz, se instala con \texttt{sudo apt install python3-tk}. La interfaz necesita una sesión gráfica. Seleccionar \texttt{graph1.hcp}, elegir ACO + 2-opt, dejar semilla 0, 100000 evaluaciones y 15 segundos, y pulsar Ejecutar. La búsqueda se realiza en un hilo para mantener la ventana disponible. El panel muestra validación, costo, tiempo y arreglo; las gráficas muestran el ciclo propuesto y la convergencia.
+
+El verde indica una arista existente; el rojo, una conexión faltante. La distribución circular es un dibujo de las etiquetas, no una representación de distancias geográficas. Una línea de convergencia horizontal significa que no mejoró el mejor costo durante ese intervalo; no implica que el algoritmo haya dejado de explorar. Guardar el TOUR únicamente cuando la validación confirma un ciclo completo.
+
+Para ejecutar sin ventana y mostrar todos los vértices:
+\begin{Verbatim}[fontsize=\small,breaklines=true]
+python -m experiments.resolver \
+  --instance data/test_instances/graph1.hcp \
+  --algorithm aco_ls --seed 0 \
+  --time-limit 30 --completo
+\end{Verbatim}
+El comando imprime etiquetas de 1 a $n$. Si el resultado es válido, guarda por defecto el TOUR en \texttt{results/tours/}; termina con código 0 si hay ciclo y con 1 si no lo encuentra. Este último caso es un resultado de búsqueda y no necesariamente un error del programa.
+
+\subsection{Dataset completo, resultados y pruebas}
+La carpeta \texttt{data/instances/} está vacía en la copia revisada; contiene únicamente un archivo de indicación. Para la demostración se usan los archivos incluidos en \texttt{data/test\_instances/}. Para experimentar con todo el set se debe extraer \texttt{data/FHCPCS.7z}, localizar los archivos HCP y colocarlos en \texttt{data/instances/}, o usar sus rutas reales. Tener un catálogo de 1001 grafos no significa haber ejecutado 1001 pruebas.
+
+La procedencia local declara una copia pública del conjunto. La presencia de un archivo llamado FHCPCS.7z y la coincidencia de características no certifican por sí solas una descarga oficial. Debe conservarse la URL de descarga y comparar contenidos normalizando saltos de línea si se desea cerrar esa verificación. Este informe mantiene explícita esa limitación.
+
+Los CSV de corridas están en \texttt{results/bench\_runs.csv} y \texttt{results/pesada\_runs.csv}; los JSONL conservan historiales; las tablas y figuras se encuentran en \texttt{results/analisis/} y \texttt{results/analisis\_pesada/}. Esos datos respaldan las comparativas; no se presentan las corridas históricas como experimentos repetidos durante esta edición.
+
+La revisión ejecutó \texttt{python3 -m pytest -q}: 48 pruebas aprobaron y una se omitió porque busca instancias en la carpeta vacía. La prueba de uso de \texttt{resolver} con graph1 y ACO + 2-opt encontró un ciclo válido. La importación de la interfaz fue correcta; esto no sustituye una prueba visual completa de la ventana.
+
+\subsection{Límites y mejoras del diseño experimental}
+El resultado de una instancia resuelta entre seis probadas describe únicamente esa muestra. No permite afirmar una tasa de $1/1001$, ni extrapolar $1/6$ a todo el set. El resultado oficial de 985 grafos usa otra cobertura, otros recursos y técnicas especializadas; el contraste de calidad es contextual, no una competencia de velocidad bajo condiciones idénticas.
+
+Para fortalecer una evaluación futura conviene seleccionar instancias por tamaño y estructura, fijar el hardware y ejecutar secuencialmente para comparar tiempos, separar instancias de ajuste y evaluación, y conservar versiones y semillas. Los presupuestos deben ser iguales dentro de cada experimento. Las conclusiones actuales se restringen a los datos observados: ACO con búsqueda local destaca en graph1, pero su sobrecosto puede perjudicarlo en grafos grandes.
+
+\subsection{Correspondencia del portafolio con la práctica}
+La sección 1 cubre la investigación; la 2, el grafo y el fitness; la 3, las implementaciones; la 4, el dataset y protocolo; la 5, las comparativas; la 6, el contraste oficial; y la 7, las conclusiones. Las secciones 8 y 9 permiten reproducir y localizar los requisitos. El portafolio incluye este informe, el código de \texttt{src/} y \texttt{experiments/}, y las evidencias de \texttt{results/}.
+
+\clearpage
+\begingroup\small\setstretch{1.0}
+\section{Referencias}\label{referencias}
+
+\begin{itemize}
+\tightlist
+\item
+  Auger, A. y Hansen, N. (2005). Performance evaluation of an advanced
+  local search evolutionary algorithm. \emph{IEEE CEC 2005}.
+\item
+  Bean, J. C. (1994). Genetic algorithms and random keys for sequencing
+  and optimization. \emph{ORSA Journal on Computing}, 6(2).
+\item
+  Croes, G. A. (1958). A method for solving traveling-salesman problems.
+  \emph{Operations Research}, 6(6).
+\item
+  Dorigo, M. y Stützle, T. (2004). \emph{Ant Colony Optimization}. MIT
+  Press.
+\item
+  Garey, M. R. y Johnson, D. S. (1979). \emph{Computers and
+  Intractability}. W. H. Freeman.
+\item
+  Goldberg, D. E. (1989). \emph{Genetic Algorithms in Search,
+  Optimization and Machine Learning}. Addison-Wesley.
+\item
+  Haythorpe, M. (2018). FHCP Challenge Set: The first set of
+  structurally difficult instances of the Hamiltonian cycle problem.
+  \emph{Bulletin of the ICA}, 83. arXiv:1902.10352.
+\item
+  Helsgaun, K. (2000). An effective implementation of the Lin-Kernighan
+  traveling salesman heuristic. \emph{European Journal of Operational
+  Research}, 126(1).
+\item
+  Holm, S. (1979). A simple sequentially rejective multiple test
+  procedure. \emph{Scandinavian Journal of Statistics}, 6(2).
+\item
+  Karaboga, D. y Basturk, B. (2007). A powerful and efficient algorithm
+  for numerical function optimization: artificial bee colony (ABC)
+  algorithm. \emph{Journal of Global Optimization}, 39(3).
+\item
+  Karp, R. M. (1972). Reducibility among combinatorial problems. En
+  \emph{Complexity of Computer Computations}. Plenum.
+\item
+  Kennedy, J. y Eberhart, R. (1995). Particle swarm optimization.
+  \emph{Proc. IEEE ICNN}.
+\item
+  Kirkpatrick, S., Gelatt, C. D. y Vecchi, M. P. (1983). Optimization by
+  simulated annealing. \emph{Science}, 220(4598).
+\item
+  Pósa, L. (1976). Hamiltonian circuits in random graphs. \emph{Discrete
+  Mathematics}, 14(4).
+\item
+  Storn, R. y Price, K. (1997). Differential evolution -- a simple and
+  efficient heuristic for global optimization over continuous spaces.
+  \emph{Journal of Global Optimization}, 11(4).
+\item
+  Stützle, T. y Hoos, H. H. (2000). MAX-MIN Ant System. \emph{Future
+  Generation Computer Systems}, 16(8).
+\item
+  Tasgetiren, M. F., Liang, Y.-C., Sevkli, M. y Gencyilmaz, G. (2007). A
+  particle swarm optimization algorithm for makespan and total flowtime
+  minimization in the permutation flowshop sequencing problem.
+  \emph{European Journal of Operational Research}, 177(3).
+\item
+  Whitley, D., Starkweather, T. y Fuquay, D. (1989). Scheduling problems
+  and traveling salesmen: the genetic edge recombination operator.
+  \emph{Proc. 3rd ICGA}.
+\item
+  Flinders Hamiltonian Cycle Project -- FHCP Challenge Set:
+  \url{https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/}
+\end{itemize}
+
+
+\paragraph{Fuentes verificadas para esta edición.}
+Flinders University, \emph{FHCP Challenge Set}, página oficial, consultada el 13 de noviembre de 2026: \url{https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/}. Se verificaron el tamaño del conjunto, los formatos HCP y TOUR, el criterio de competencia y los 985 grafos resueltos por los ganadores. Haythorpe, M., \emph{FHCP Challenge Set}, versión del artículo en \url{https://arxiv.org/abs/1902.10352}, publicación en Bulletin of the ICA, 83, pp. 98--107, 2018. La práctica original se conserva en \texttt{practica.pdf}; no es una fuente de resultados experimentales.
+
+\endgroup
+\end{document}

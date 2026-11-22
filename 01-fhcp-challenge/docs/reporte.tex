@@ -1,0 +1,1513 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,left=2.25cm,top=3.0cm,right=2.25cm,bottom=2.0cm, headsep=1.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,mexico]{babel}
+%\usepackage[letterpaper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\usepackage{array}
+
+% Formato del documento
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{parskip}
+
+% Tablas
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% Imágenes
+
+% Referencias y enlaces
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+
+% Referencias bibliográficas ISO 690
+\usepackage{csquotes}
+
+\usepackage[
+    backend=biber,
+    style=iso-numeric,
+    sorting=none
+]{biblatex}
+
+\addbibresource{Referencias.bib}
+
+% Interlineado
+\onehalfspacing
+
+% Ajustes de tablas
+\renewcommand{\arraystretch}{1.3}
+
+\usepackage[spanish,es-tabla]{babel}
+
+\usepackage{csquotes}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % Centrar 
+
+%\usepackage{hyperref}
+\usepackage{wallpaper}
+% Para utilizar el formato de citas IEEE y comentar los dos parrafos siguientes. Ademas de utilizar el comando \cite en vez de \cite
+\usepackage[backend=biber,style=iso-numeric]{biblatex}
+
+% Estas lineas permiten romper los hipervinculos muy largos en las referencias!!!!
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\addbibresource{Referencias.bib} % ARCHIVO DE BIBLIOGRAFÍA
+
+
+\usepackage[bookmarks=true,breaklinks=true,bookmarksopen=false,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage{pdfpages} % Incluir PDF en documento en LATEX
+\setstretch{1.3}
+
+\usepackage{soul}
+
+
+% CONSTANTES NECESARIAS PARA EL DOCUMENTO ---> MODIFIQUEN A SU CRITERIO
+\newcommand{\NombreGina}{Georgina Reta Limas}
+\newcommand{\NombreJazmin}{Melissa Jazmin Torres Martinez}
+\soulregister{\NombreGina}{1}
+\soulregister{\NombreJazmin}{1}
+\newcommand{\NombreTarea}{Prevención de extracción de fotografias de estudiantiles en entornos no cifrados (SIISU)} 
+\newcommand{\NombreProyectoheader}{\NombreTarea}
+\newcommand{\TipoProyecto}{Reporte Unidad 2}
+\newcommand{\Materia}{Ética y legislación en tecnologías de la Información}
+\newcommand{\Maestro}   {Dr. Héctor Hugo Avilés Arriaga}
+\newcommand{\MatriculaGina}{2430043}
+\newcommand{\MatriculaJazmin}{2430017}
+\newcommand{\ncuatrimestre}{Séptimo}
+
+
+\newcommand{\fechaRealizacion}{09 de Septiembre de 2026}
+\newcommand{\fechaLimite}{11 de Septiembre de 2026}
+
+\newcommand{\ncarrera}{Ingeniería en Tecnologías de la Información e Innovación Digital}
+
+
+\fancyhead{} % Clear all header fields
+\fancyhead[C]{%
+    \begin{tabular}{@{} m{0.2\textwidth} m{0.5\textwidth} m{0.2\textwidth} @{}}
+        % Left image
+        \includegraphics[height=1.20cm]{UTYP.png}
+        &
+        \centering
+        \scriptsize{\NombreProyectoheader}
+        &
+        \includegraphics[height=1.5cm]{LogoUPV_2023.png}
+    \end{tabular}
+}
+
+
+\addto\captionsspanish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Contenido temático}%
+}
+
+
+\renewcommand\spanishtablename{Tabla}
+
+\begin{document}
+
+% PAGINA 1 - PORTADA
+\setcounter{page}{0}
+\pagenumbering{roman}
+\thispagestyle{empty}
+
+\begin{titlepage}
+\centering
+\vspace*{-1.5cm}
+
+% Logotipos superiores
+\begin{tabular}{cp{6cm}c}
+\includegraphics[height=2.25cm]{UTYP.png} & 
+& \includegraphics[height=2.25cm]{LogoUPV_2023.png}   \\
+\end{tabular}
+
+\vspace{0.4cm}
+
+{\Large \textbf{UNIVERSIDAD POLITÉCNICA DE VICTORIA}}\\[0.3cm]
+{\large \MakeUppercase{\Materia}}\\[2cm]
+{\Large \textbf{\MakeUppercase{\NombreTarea}}}
+
+\vfill
+
+% --- RECUADRO PARA IMAGEN CENTRAL ---
+% Cambia 'tu_imagen.png' por el archivo deseado o ajusta 'height' si es necesario
+%\includegraphics[width=6.5cm, height=6.5cm, keepaspectratio]{figs/portada.jpg}}
+% ------------------------------------
+
+\vfill
+
+{\small QUE PRESENTA}\\[0.15cm]
+\textbf{\MakeUppercase{\NombreGina}}\\[0.15cm]
+\textbf{\MakeUppercase{\NombreJazmin}}\\[0.4cm]
+
+{\small MATRICULAS}\\[0.15cm]
+\textbf{\small{\MatriculaGina}}\\[0.15cm]
+\textbf{\small{\MatriculaJazmin}}\\[0.4cm]
+
+{\small EN CUMPLIMIENTO DEL DEBER}\\[0.15cm]
+\textbf{\MakeUppercase{\TipoProyecto}}\\[0.4cm]
+
+{\small MAESTRO A CARGO DE LA MATERIA}\\[0.15cm]
+\textbf{\MakeUppercase{\Maestro}}
+
+\vfill
+
+\begin{flushright}
+Ciudad Victoria, Tamaulipas, \fechaRealizacion.
+\end{flushright}
+
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Introducción}
+
+La digitalización de los procesos académicos ha permitido
+a las instituciones de educación superior optimizar la
+administración de información estudiantil mediante
+plataformas digitales. Sin embargo, el almacenamiento
+y tratamiento de datos personales exige implementar
+mecanismos de seguridad que garanticen su confidencialidad,
+integridad y disponibilidad.
+
+La Universidad Politécnica de Victoria (UPV) utiliza
+el Sistema Integral de Información y Servicios
+Universitarios (SIISU) como una de sus principales
+herramientas para la gestión académica. Esta plataforma
+permite consultar horarios, calificaciones, historial
+académico y datos personales, además de facilitar
+actividades administrativas y docentes.
+
+Durante la revisión del funcionamiento de SIISU,
+se identificó que las fotografías de perfil de los
+estudiantes, originalmente capturadas por la institución
+para la elaboración de credenciales universitarias,
+se encuentran asociadas a direcciones web que
+contienen identificadores académicos predecibles.
+
+De acuerdo con las observaciones realizadas, estos
+recursos pueden visualizarse sin necesidad de
+autenticación, lo que representa un riesgo potencial
+de acceso no autorizado, recopilación de fotografías
+y asociación de información personal.
+
+Esta problemática adquiere relevancia ante los
+antecedentes de utilización indebida de fotografías
+estudiantiles en plataformas digitales, incluyendo
+casos de exposición no consentida y manipulación
+de imágenes mediante inteligencia artificial.
+
+En consecuencia, el presente proyecto tiene como
+objetivo analizar los riesgos jurídicos, técnicos y
+éticos asociados con la exposición de fotografías
+estudiantiles en SIISU, así como desarrollar una
+política institucional de uso responsable de datos
+personales y recursos digitales.
+
+La propuesta contempla medidas preventivas,
+controles de acceso, responsabilidades institucionales
+y procedimientos de actuación orientados a
+salvaguardar la privacidad de la comunidad
+universitaria.
+
+% ---------------------- HECHOS +++++++++++++++++++++++++++++
+\section{Descripción de la organización y del contexto}
+\subsection{Descripción de la institución}
+
+La Universidad Politécnica de Victoria (UPV) es una
+institución pública de educación superior ubicada
+en Ciudad Victoria, Tamaulipas, México.
+
+Como parte de sus actividades académicas y
+administrativas, la universidad recopila,
+almacena y procesa información personal de
+estudiantes, docentes y personal administrativo.
+
+Para gestionar estos procesos, dispone de
+plataformas institucionales que permiten
+administrar registros académicos, consultar
+información estudiantil y facilitar la
+comunicación entre los integrantes de la
+comunidad universitaria.
+
+Entre estas herramientas destaca SIISU,
+una plataforma desarrollada por la propia
+institución que constituye uno de los
+principales medios de gestión y consulta
+de información académica.
+
+\subsection{Funcionamiento de SIISU}
+
+SIISU es una plataforma institucional utilizada
+por estudiantes y docentes para desarrollar
+diversas actividades académicas.
+
+En el caso de los estudiantes, permite consultar
+horarios, historial académico, rendimiento,
+calificaciones e información relacionada con
+sus tutores.
+
+Asimismo, dispone de un apartado de perfil
+que contiene datos personales como nombres,
+apellidos, correo electrónico, número telefónico
+e información de referencia, además de
+opciones para la administración de la cuenta.
+
+En la parte superior del perfil se encuentra
+la fotografía institucional del estudiante,
+capturada previamente por la universidad
+para la elaboración de su credencial.
+
+Esta fotografía es administrada por la
+institución y no puede ser modificada
+directamente por el estudiante.
+
+Por otra parte, los docentes utilizan SIISU
+para registrar calificaciones y realizar
+actividades relacionadas con la gestión
+académica.
+
+Durante la revisión que dio origen al
+presente proyecto, la exposición descrita
+se identificó en fotografías de estudiantes.
+No se encontraron evidencias equivalentes
+en los perfiles docentes examinados.
+
+\subsection{Identificación de la problemática}
+
+Durante una revisión exploratoria de SIISU,
+se observó que las fotografías estudiantiles
+se encuentran almacenadas mediante una
+estructura de direcciones web que incorpora
+la matrícula del estudiante.
+
+El patrón identificado presenta la siguiente
+estructura general:
+
+\begin{center}
+\small
+\texttt{
+/storage/documentos/\\
+\{matricula\}/Foto/\{matricula\}.JPG
+}
+\end{center}
+
+En esta estructura, la matrícula funciona
+como identificador del directorio y del
+archivo correspondiente a la fotografía.
+
+El principal problema identificado no radica
+únicamente en la utilización de identificadores
+predecibles, sino en que, según las observaciones
+realizadas, las imágenes pueden consultarse
+sin necesidad de mantener una sesión
+autenticada en SIISU.
+
+Esta condición podría permitir que personas
+ajenas al sistema accedan a fotografías
+institucionales sin contar con autorización
+para consultar dicha información.
+
+Adicionalmente, la utilización de patrones
+predecibles incrementa el riesgo de
+recopilación automatizada de recursos,
+particularmente cuando no existen
+mecanismos suficientes de control de acceso,
+supervisión y detección de solicitudes anómalas.
+
+La situación adquiere mayor relevancia
+considerando que las matrículas pueden
+relacionarse con información disponible
+en otros servicios institucionales,
+facilitando la asociación entre
+identificadores académicos e identidades
+personales.
+
+Por lo anterior, se considera necesario
+evaluar los controles de protección de
+fotografías estudiantiles y establecer
+medidas que impidan su consulta,
+recopilación o utilización no autorizada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]
+    {imagenes/esquema_siisu.jpg}
+    \caption{Estructura general de acceso a
+    fotografías estudiantiles en SIISU.}
+    \label{fig:estructura_siisu}
+\end{figure}
+
+\subsection{Comparación con otros sistemas institucionales}
+
+La Universidad Politécnica de Victoria
+también dispone de SIITA, una plataforma
+orientada principalmente a actividades
+relacionadas con las tutorías académicas.
+
+Durante la revisión exploratoria se
+observaron diferencias entre los mecanismos
+de identificación de fotografías utilizados
+por SIISU y SIITA.
+
+Mientras que SIISU presenta rutas que
+incorporan directamente la matrícula,
+SIITA aparentemente utiliza identificadores
+que no permiten reconocer de forma
+inmediata al estudiante mediante el
+nombre del archivo.
+
+Esta diferencia sugiere que la institución
+ha implementado distintos mecanismos
+de almacenamiento e identificación de
+recursos digitales.
+
+Sin embargo, la utilización de nombres
+no reconocibles no garantiza por sí misma
+que los archivos se encuentren cifrados
+o protegidos mediante controles de acceso.
+
+Por ello, se propone verificar los
+mecanismos de autorización utilizados
+en ambos sistemas e identificar
+prácticas de seguridad que puedan
+aplicarse de manera uniforme.
+
+\subsection{Delimitación del problema}
+
+El presente proyecto se enfoca en la
+exposición de fotografías correspondientes
+a perfiles estudiantiles de SIISU.
+
+El análisis considera la estructura de
+identificación de archivos, las condiciones
+de acceso observadas y los riesgos derivados
+de la posible consulta no autorizada.
+
+No se contempla la extracción masiva de
+fotografías, la enumeración automatizada
+de matrículas ni la ejecución de pruebas
+intrusivas sobre la infraestructura
+universitaria.
+
+Asimismo, no se afirma que los datos
+académicos, las contraseñas o los perfiles
+docentes presenten la misma condición
+de exposición.
+
+El alcance del proyecto consiste en
+proponer una política institucional
+de protección de datos personales,
+acompañada de medidas técnicas,
+jurídicas y administrativas que
+permitan reducir los riesgos
+identificados.
+
+
+
+%-------------------------------------------------------------------------
+
+\section{Identificación de datos personales
+y recursos digitales involucrados}
+
+\subsection{Identificación de datos personales}
+
+La Universidad Politécnica de Victoria
+administra información personal de sus
+estudiantes mediante diferentes
+plataformas institucionales.
+
+Durante la revisión exploratoria se
+identificaron dos niveles de exposición
+de información: uno externo, relacionado
+con las fotografías almacenadas en SIISU,
+y otro interno, asociado con la
+visibilidad de información estudiantil
+en Google Workspace.
+
+En el primer nivel, las fotografías
+institucionales pueden consultarse,
+según las observaciones realizadas,
+sin necesidad de iniciar sesión.
+Además, las direcciones utilizadas
+incorporan directamente la matrícula
+del estudiante.
+
+En el segundo nivel, los usuarios
+con cuentas institucionales pueden
+localizar información de otros
+integrantes mediante las herramientas
+de búsqueda de Google Workspace.
+
+Estas consultas pueden mostrar nombres
+completos, direcciones de correo
+institucional y matrículas. Asimismo,
+se observó que determinados registros
+del directorio permiten visualizar
+números telefónicos.
+
+Aunque cada dato puede cumplir
+una finalidad administrativa legítima,
+su disponibilidad conjunta incrementa
+el riesgo de identificación, asociación
+y utilización no autorizada de
+información personal.
+
+La Tabla \ref{tab:datos_personales}
+presenta los principales datos
+identificados y sus condiciones
+de exposición.
+
+\begin{table}[H]
+\centering
+\caption{Datos personales y condiciones de exposición}
+\label{tab:datos_personales}
+\small
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Dato personal} &
+\textbf{Origen} &
+\textbf{Accesibilidad observada} \\ \hline
+
+Fotografía institucional &
+SIISU &
+Externa, sin autenticación. \\ \hline
+
+Matrícula &
+SIISU y correo institucional &
+Visible en rutas y registros
+institucionales. \\ \hline
+
+Nombre completo &
+Google Workspace &
+Localizable por usuarios
+institucionales. \\ \hline
+
+Correo institucional &
+Gmail y directorio &
+Localizable por usuarios
+institucionales. \\ \hline
+
+Número telefónico &
+Contactos institucionales &
+Visible en determinados
+registros internos. \\ \hline
+
+Contraseña inicial &
+Sistema de autenticación &
+No se observó exposición
+directa; existe un posible
+riesgo por su estructura
+predecible. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+\subsection{Recursos digitales involucrados}
+
+Los recursos digitales involucrados
+comprenden los sistemas institucionales
+utilizados para gestionar, almacenar
+y consultar información estudiantil.
+
+El principal sistema analizado es SIISU,
+debido a las condiciones observadas
+en el acceso a fotografías.
+
+Adicionalmente, Google Workspace
+constituye un recurso relevante
+por la posibilidad de consultar
+información de los integrantes
+de la comunidad universitaria.
+
+\begin{table}[H]
+\centering
+\caption{Recursos digitales involucrados}
+\label{tab:recursos_digitales}
+\small
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Recurso} &
+\textbf{Función institucional} &
+\textbf{Riesgo identificado} \\ \hline
+
+SIISU &
+Gestión de información académica. &
+Acceso público a fotografías. \\ \hline
+
+Servidor de imágenes &
+Almacenamiento de fotografías. &
+Controles de acceso insuficientes. \\ \hline
+
+Google Workspace &
+Colaboración y administración
+de usuarios. &
+Correlación de datos personales. \\ \hline
+
+Gmail institucional &
+Comunicación académica. &
+Visibilidad de identidades
+y correos. \\ \hline
+
+Google Contacts &
+Directorio institucional. &
+Exposición interna de
+datos de contacto. \\ \hline
+
+Sistema de autenticación &
+Administración de credenciales. &
+Posible predictibilidad de
+contraseñas iniciales. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+\subsection{Riesgos derivados de la
+correlación de información}
+
+La exposición de datos personales
+en diferentes plataformas puede
+generar riesgos adicionales cuando
+la información se relaciona
+para construir perfiles individuales.
+
+En el caso analizado, SIISU
+presenta una posible exposición
+externa de fotografías asociadas
+con matrículas estudiantiles.
+
+Por otra parte, las herramientas
+de búsqueda institucional de
+Google Workspace permiten
+localizar información de contacto
+e identificación de los usuarios. La combinación de ambas condiciones
+podría facilitar la asociación
+entre fotografías, matrículas,
+nombres completos, correos
+institucionales y números telefónicos.
+
+Este fenómeno se conoce como
+correlación de datos y representa
+un riesgo para la privacidad,
+especialmente cuando la información
+puede utilizarse fuera de las
+finalidades institucionales. Entre sus posibles consecuencias
+se encuentran la suplantación
+de identidad, el acoso,
+la ingeniería social y
+la utilización no consentida
+de fotografías personales.
+
+Es importante señalar que
+la visibilidad de información
+dentro de un directorio
+institucional no constituye
+automáticamente una vulnerabilidad.
+
+Para determinar si existe
+una exposición indebida,
+es necesario evaluar la
+finalidad del directorio,
+los permisos establecidos
+y la necesidad de que
+cada dato sea accesible
+para los distintos usuarios.
+
+\subsection{Clasificación de los riesgos
+según el nivel de acceso}
+
+\begin{table}[H]
+\centering
+\caption{Clasificación de exposición
+según el tipo de usuario}
+\label{tab:niveles_exposicion}
+\small
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Tipo de usuario} &
+\textbf{Información potencialmente accesible} &
+\textbf{Riesgo principal} \\ \hline
+
+Usuario externo &
+Fotografía y matrícula
+asociada a la ruta. &
+Acceso no autorizado
+a imágenes. \\ \hline
+
+Usuario institucional &
+Fotografía, matrícula,
+nombre, correo y
+determinados teléfonos. &
+Correlación de información
+personal. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+La clasificación anterior
+corresponde a los escenarios
+de riesgo identificados.
+No implica que se haya
+comprobado el compromiso
+de cuentas institucionales.
+
+
+\section{Identificación de datos personales
+y recursos digitales involucrados}
+
+\subsection{Identificación de datos personales}
+
+La Universidad Politécnica de Victoria administra
+información personal de sus estudiantes mediante
+diferentes plataformas institucionales.
+
+De acuerdo con la Ley General de Protección de
+Datos Personales en Posesión de Sujetos Obligados,
+las instituciones públicas deben garantizar
+el tratamiento adecuado y la protección de
+la información personal bajo su responsabilidad
+\parencite{lgpdppso2025}.
+
+Durante la revisión exploratoria se identificaron
+dos niveles de exposición de información:
+uno externo, relacionado con las fotografías
+almacenadas en SIISU, y otro interno,
+asociado con la visibilidad de información
+estudiantil en Google Workspace.
+
+En el primer nivel, las fotografías institucionales
+pueden consultarse, según las observaciones
+realizadas, sin necesidad de iniciar sesión.
+Además, las direcciones utilizadas incorporan
+directamente la matrícula del estudiante.
+
+Esta condición representa un posible problema
+de control de acceso. OWASP establece que
+las vulnerabilidades de referencia directa
+insegura a objetos (IDOR) ocurren cuando
+una aplicación permite acceder a recursos
+sin verificar adecuadamente los permisos
+del solicitante \parencite{owaspidor}.
+
+En el segundo nivel, los usuarios con cuentas
+institucionales pueden localizar información
+de otros integrantes mediante las herramientas
+de búsqueda de Google Workspace.
+
+Estas consultas pueden mostrar nombres
+completos, direcciones de correo institucional
+y matrículas. Asimismo, se observó que
+determinados registros del directorio
+permiten visualizar números telefónicos.
+
+Aunque cada dato puede cumplir una finalidad
+administrativa legítima, su disponibilidad
+conjunta incrementa el riesgo de identificación,
+asociación y utilización no autorizada
+de información personal.
+
+La Tabla \ref{tab:datos_personales}
+presenta los principales datos identificados
+y sus condiciones de exposición.
+
+\begin{table}[H]
+\centering
+\caption{Datos personales y condiciones de exposición}
+\label{tab:datos_personales}
+\small
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Dato personal} &
+\textbf{Origen} &
+\textbf{Accesibilidad observada} \\ \hline
+
+Fotografía institucional &
+SIISU &
+Externa, sin autenticación. \\ \hline
+
+Matrícula &
+SIISU y correo institucional &
+Visible en rutas y registros institucionales. \\ \hline
+
+Nombre completo &
+Google Workspace &
+Localizable por usuarios institucionales. \\ \hline
+
+Correo institucional &
+Gmail y directorio &
+Localizable por usuarios institucionales. \\ \hline
+
+Número telefónico &
+Contactos institucionales &
+Visible en determinados registros internos. \\ \hline
+
+Contraseña inicial &
+Sistema de autenticación &
+No se observó exposición directa;
+existe un posible riesgo por su
+estructura predecible. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+
+\subsection{Recursos digitales involucrados}
+
+Los recursos digitales involucrados comprenden
+los sistemas institucionales utilizados para
+gestionar, almacenar y consultar información
+estudiantil.
+
+El principal sistema analizado es SIISU,
+debido a las condiciones observadas en
+el acceso a fotografías.
+
+Adicionalmente, Google Workspace constituye
+un recurso relevante por la posibilidad
+de consultar información de los integrantes
+de la comunidad universitaria.
+
+Google Workspace dispone de herramientas
+de directorio que permiten localizar
+información de usuarios dentro de una
+organización. La visibilidad de estos
+datos depende de la configuración
+administrativa y de los permisos
+establecidos \parencite{googleworkspace}.
+
+\begin{table}[H]
+\centering
+\caption{Recursos digitales involucrados}
+\label{tab:recursos_digitales}
+\small
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Recurso} &
+\textbf{Función institucional} &
+\textbf{Riesgo identificado} \\ \hline
+
+SIISU &
+Gestión de información académica. &
+Acceso público a fotografías. \\ \hline
+
+Servidor de imágenes &
+Almacenamiento de fotografías. &
+Controles de acceso insuficientes. \\ \hline
+
+Google Workspace &
+Colaboración y administración de usuarios. &
+Correlación de datos personales. \\ \hline
+
+Gmail institucional &
+Comunicación académica. &
+Visibilidad de identidades y correos. \\ \hline
+
+Google Contacts &
+Directorio institucional. &
+Exposición interna de datos de contacto. \\ \hline
+
+Sistema de autenticación &
+Administración de credenciales. &
+Posible predictibilidad de
+contraseñas iniciales. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+
+\subsection{Riesgos derivados de la
+correlación de información}
+
+La exposición de datos personales en
+diferentes plataformas puede generar
+riesgos adicionales cuando la información
+se relaciona para construir perfiles
+individuales.
+
+En el caso analizado, SIISU presenta
+una posible exposición externa de
+fotografías asociadas con matrículas
+estudiantiles.
+
+Por otra parte, las herramientas de
+búsqueda institucional de Google Workspace
+permiten localizar información de
+contacto e identificación de los usuarios.
+
+La combinación de ambas condiciones
+podría facilitar la asociación entre
+fotografías, matrículas, nombres completos,
+correos institucionales y números telefónicos.
+
+Este fenómeno se relaciona con los riesgos
+de privacidad derivados de la agregación
+y vinculación de información personal.
+
+El NIST Privacy Framework reconoce
+que el procesamiento y la asociación
+de datos pueden generar riesgos para
+las personas, por lo que recomienda
+identificarlos y gestionarlos mediante
+controles organizacionales y técnicos
+\parencite{nistprivacy}.
+
+Entre las posibles consecuencias de
+esta correlación se encuentran la
+suplantación de identidad, el acoso,
+la ingeniería social y la utilización
+no consentida de fotografías personales.
+
+Es importante señalar que la visibilidad
+de información dentro de un directorio
+institucional no constituye automáticamente
+una vulnerabilidad.
+
+Para determinar si existe una exposición
+indebida, es necesario evaluar la finalidad
+del directorio, los permisos establecidos
+y la necesidad de que cada dato sea
+accesible para los distintos usuarios.
+
+
+\subsection{Riesgos relacionados con
+las credenciales de acceso}
+
+Durante la revisión del contexto
+institucional se identificó una posible
+debilidad relacionada con la generación
+de contraseñas iniciales para las
+cuentas estudiantiles.
+
+De acuerdo con la información recopilada,
+estas credenciales siguen una estructura
+parcialmente predecible basada en
+información personal del estudiante.
+
+Asimismo, se señaló que algunos usuarios
+conservan la contraseña asignada
+originalmente por la institución.
+
+Esta práctica podría incrementar el riesgo
+de acceso no autorizado cuando las
+credenciales iniciales no son suficientemente
+aleatorias o permanecen activas durante
+periodos prolongados.
+
+El National Institute of Standards and
+Technology (NIST) recomienda utilizar
+mecanismos de autenticación resistentes
+a ataques de adivinación y evitar
+prácticas que debiliten la seguridad
+de las credenciales
+\parencite{nist80063b}.
+
+Sin embargo, no se cuenta con evidencia
+de que las contraseñas se encuentren
+públicamente expuestas ni de que se
+hayan comprometido cuentas mediante
+este mecanismo.
+
+Como medida preventiva, se recomienda
+implementar contraseñas iniciales
+aleatorias, de uso temporal, y exigir
+su modificación durante el primer
+inicio de sesión.
+
+Adicionalmente, se propone incorporar
+mecanismos de autenticación multifactor
+y procedimientos seguros de recuperación
+de cuentas.
+
+
+\subsection{Clasificación de los riesgos
+según el nivel de acceso}
+
+La exposición de información presenta
+diferencias según el tipo de usuario
+y los permisos disponibles.
+
+Esta clasificación permite distinguir
+los riesgos asociados con el acceso
+externo a fotografías de aquellos
+relacionados con la visibilidad
+de información dentro del entorno
+institucional.
+
+\begin{table}[H]
+\centering
+\caption{Clasificación de exposición
+según el tipo de usuario}
+\label{tab:niveles_exposicion}
+\small
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Tipo de usuario} &
+\textbf{Información potencialmente accesible} &
+\textbf{Riesgo principal} \\ \hline
+
+Usuario externo &
+Fotografía y matrícula
+asociada a la ruta. &
+Acceso no autorizado a imágenes. \\ \hline
+
+Usuario institucional &
+Fotografía, matrícula, nombre,
+correo y determinados teléfonos. &
+Correlación de información personal. \\ \hline
+
+Usuario con credenciales comprometidas &
+Información disponible según
+los permisos de la cuenta afectada. &
+Acceso indebido y suplantación
+de identidad. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+La clasificación anterior corresponde
+a los escenarios de riesgo identificados
+y no implica que se haya comprobado
+el compromiso de cuentas institucionales.
+
+De acuerdo con OWASP, los sistemas deben
+aplicar controles de autorización para
+cada solicitud y seguir el principio
+del menor privilegio, otorgando únicamente
+los permisos necesarios para cada usuario
+\parencite{owaspauth}.
+
+\section{Política de uso responsable de datos
+personales y recursos digitales}
+
+\subsection{Propósito}
+
+Establecer lineamientos institucionales para
+garantizar la protección de fotografías
+estudiantiles y demás datos personales
+almacenados en SIISU, mediante mecanismos
+de seguridad, control de acceso y
+tratamiento responsable de la información.
+
+\subsection{Alcance}
+
+La presente política está dirigida
+al personal administrativo, docentes,
+desarrolladores, responsables de
+tecnologías de la información y
+demás integrantes de la comunidad
+universitaria que intervengan en
+el tratamiento de datos personales.
+
+Su aplicación comprende los sistemas
+institucionales, servidores, bases de
+datos y servicios digitales utilizados
+para almacenar o consultar información
+estudiantil.
+
+\subsection{Tratamiento de datos personales}
+
+La institución deberá garantizar
+que los datos personales sean
+tratados conforme a las finalidades
+para las cuales fueron recopilados.
+
+Se establecen los siguientes lineamientos:
+
+\begin{enumerate}
+    \item Recopilar únicamente la
+    información necesaria para
+    las actividades institucionales.
+
+    \item Informar a los titulares
+    sobre las finalidades del
+    tratamiento mediante el
+    aviso de privacidad.
+
+    \item Restringir el acceso a
+    fotografías y registros
+    personales a usuarios autorizados.
+
+    \item Prohibir la difusión
+    de fotografías institucionales
+    para fines no autorizados.
+
+    \item Conservar la información
+    durante los periodos legal
+    y administrativamente aplicables.
+
+    \item Eliminar o bloquear los
+    datos cuando corresponda,
+    conforme a la normativa vigente.
+\end{enumerate}
+
+\subsection{Medidas de privacidad y seguridad}
+
+El área responsable de tecnologías
+de la información deberá implementar
+medidas preventivas para proteger
+las fotografías institucionales.
+
+Estas medidas comprenderán:
+
+\begin{enumerate}
+    \item Exigir autenticación para
+    consultar fotografías estudiantiles.
+
+    \item Verificar la autorización
+    del usuario para acceder
+    a cada recurso solicitado.
+
+    \item Evitar la exposición directa
+    de archivos personales mediante
+    directorios públicos.
+
+    \item Utilizar identificadores
+    no predecibles como medida
+    complementaria de seguridad.
+
+    \item Implementar registros
+    de acceso y mecanismos de
+    detección de actividad anómala.
+
+    \item Establecer restricciones
+    frente a solicitudes automatizadas
+    excesivas.
+
+    \item Aplicar cifrado durante
+    la transmisión de información
+    y, cuando corresponda,
+    durante su almacenamiento.
+
+    \item Realizar evaluaciones
+    periódicas de seguridad.
+\end{enumerate}
+
+Estas medidas se fundamentan
+en las recomendaciones de OWASP
+para prevenir vulnerabilidades
+de referencia directa insegura
+a objetos \parencite{owaspidor}.
+
+\subsection{Derechos ARCO}
+
+La universidad deberá disponer
+de procedimientos para que
+los titulares ejerzan sus
+derechos de acceso,
+rectificación, cancelación
+y oposición, conforme
+a las disposiciones aplicables.
+
+Las solicitudes deberán
+canalizarse a la Unidad
+de Transparencia o instancia
+institucional competente.
+
+El procedimiento deberá
+contemplar la recepción,
+verificación de identidad,
+evaluación de procedencia
+y emisión de una respuesta
+dentro de los plazos legales.
+
+El ejercicio de estos derechos
+estará sujeto a las condiciones,
+excepciones y obligaciones
+de conservación previstas
+en la legislación.
+
+\subsection{Uso de recursos digitales de terceros}
+
+El personal institucional
+deberá utilizar software,
+imágenes, textos, videos,
+bases de datos y demás
+recursos digitales respetando
+las condiciones de sus
+respectivas licencias.
+
+Antes de incorporar recursos
+de terceros, deberá verificarse:
+
+\begin{enumerate}
+    \item La procedencia del recurso.
+
+    \item La titularidad de los
+    derechos correspondientes.
+
+    \item La existencia de licencias
+    o autorizaciones válidas.
+
+    \item Los permisos de reproducción,
+    modificación y distribución.
+
+    \item Las obligaciones de
+    atribución y reconocimiento.
+
+    \item Las restricciones para
+    usos comerciales o institucionales.
+\end{enumerate}
+
+La disponibilidad pública
+de una fotografía no implica
+que exista autorización para
+su reutilización.
+
+\subsection{Responsabilidades institucionales}
+
+\begin{table}[H]
+\centering
+\caption{Responsabilidades propuestas}
+\small
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Responsable} &
+\textbf{Funciones} \\ \hline
+
+Dirección institucional &
+Aprobar y supervisar la política. \\ \hline
+
+Área de TI &
+Implementar controles de seguridad. \\ \hline
+
+Desarrolladores &
+Corregir fallas y verificar permisos. \\ \hline
+
+Unidad de Transparencia &
+Atender solicitudes ARCO. \\ \hline
+
+Área jurídica &
+Verificar obligaciones y licencias. \\ \hline
+
+Docentes y administrativos &
+Resguardar información estudiantil. \\ \hline
+
+Estudiantes &
+Utilizar responsablemente los sistemas
+y reportar incidentes. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+\subsection{Actuación ante incidentes}
+
+Cuando se identifique una posible
+exposición de fotografías o
+información personal, deberán
+realizarse las siguientes acciones:
+
+\begin{enumerate}
+    \item Registrar y comunicar
+    el incidente mediante los
+    canales institucionales.
+
+    \item Evaluar el alcance
+    de la exposición.
+
+    \item Restringir temporalmente
+    los accesos inseguros.
+
+    \item Preservar las evidencias
+    técnicas necesarias sin
+    difundir datos personales.
+
+    \item Corregir las condiciones
+    que originaron el incidente.
+
+    \item Determinar las obligaciones
+    de notificación a titulares
+    y autoridades competentes.
+
+    \item Verificar la efectividad
+    de las medidas correctivas.
+
+    \item Documentar las acciones
+    realizadas y dar seguimiento.
+\end{enumerate}
+
+\subsection{Evidencias de cumplimiento}
+
+Para comprobar la aplicación
+de la política, deberán
+conservarse evidencias como:
+
+\begin{enumerate}
+    \item Registros de acceso
+    a recursos protegidos.
+
+    \item Informes de auditorías
+    de seguridad autorizadas.
+
+    \item Documentación de controles
+    de autenticación y autorización.
+
+    \item Inventarios de datos
+    personales y recursos digitales.
+
+    \item Registros de atención
+    de solicitudes ARCO.
+
+    \item Reportes de incidentes
+    y acciones correctivas.
+
+    \item Inventarios de licencias
+    y autorizaciones de terceros.
+
+    \item Constancias de capacitación
+    del personal.
+\end{enumerate}
+
+\section{Decálogo de actuación institucional}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+    \item \textbf{Proteger la identidad estudiantil.}
+    Las fotografías y datos personales
+    deberán tratarse como información
+    de acceso restringido.
+
+    \item \textbf{Verificar cada acceso.}
+    Ningún recurso personal podrá
+    consultarse sin la autorización
+    correspondiente.
+
+    \item \textbf{Evitar identificadores expuestos.}
+    Los sistemas deberán reducir
+    la utilización de referencias
+    predecibles a archivos personales.
+
+    \item \textbf{Respetar la finalidad.}
+    Las fotografías institucionales
+    solo podrán utilizarse para
+    los propósitos autorizados.
+
+    \item \textbf{Prevenir la recopilación indebida.}
+    Se deberán implementar controles
+    para detectar accesos anómalos
+    y solicitudes automatizadas.
+
+    \item \textbf{Garantizar los derechos ARCO.}
+    Los titulares podrán ejercer
+    sus derechos conforme a
+    los procedimientos legales.
+
+    \item \textbf{Respetar los derechos de autor.}
+    Los recursos digitales de
+    terceros deberán utilizarse
+    conforme a sus licencias.
+
+    \item \textbf{Reportar incidentes.}
+    Toda exposición o utilización
+    indebida deberá comunicarse
+    mediante los canales establecidos.
+
+    \item \textbf{Asignar responsabilidades.}
+    Cada área deberá conocer
+    sus obligaciones relacionadas
+    con la protección de información.
+
+    \item \textbf{Evaluar y mejorar.}
+    La seguridad de los sistemas
+    deberá revisarse periódicamente
+    para prevenir nuevas vulnerabilidades.
+
+\end{enumerate}
+
+\section{Justificación de las reglas}
+
+La política propuesta responde a la
+necesidad de garantizar un tratamiento
+responsable de la información personal
+administrada por la Universidad
+Politécnica de Victoria.
+
+Desde la perspectiva jurídica,
+se fundamenta en el derecho
+a la protección de datos personales,
+reconocido por la Constitución
+Política de los Estados Unidos
+Mexicanos y desarrollado mediante
+la legislación aplicable a
+los sujetos obligados
+\parencite{lgpdppso2025}.
+
+Desde la perspectiva técnica,
+las recomendaciones de OWASP
+establecen que los sistemas
+deben verificar los permisos
+de acceso a los recursos,
+independientemente de la
+complejidad de sus identificadores
+\parencite{owaspidor}.
+
+Desde la perspectiva ética,
+la institución tiene la
+responsabilidad de prevenir
+que información recopilada
+con fines académicos sea
+utilizada para propósitos
+distintos a los autorizados.
+
+\begin{table}[H]
+\centering
+\caption{Fundamentación de las reglas propuestas}
+\label{tab:fundamentacion}
+\small
+\begin{tabularx}{\textwidth}{|c|X|X|}
+\hline
+\textbf{Regla} &
+\textbf{Justificación} &
+\textbf{Fundamento} \\ \hline
+
+1 y 4 &
+Protección de identidad y finalidad. &
+Legislación de datos personales. \\ \hline
+
+2 y 3 &
+Prevención de accesos indebidos. &
+OWASP IDOR. \\ \hline
+
+5 &
+Prevención de recopilación automatizada. &
+Seguridad y control de acceso. \\ \hline
+
+6 &
+Garantía de derechos de los titulares. &
+Legislación ARCO. \\ \hline
+
+7 &
+Uso legítimo de recursos de terceros. &
+Derechos de autor y licencias. \\ \hline
+
+8 &
+Atención de incidentes de seguridad. &
+Gestión de riesgos. \\ \hline
+
+9 &
+Asignación de obligaciones. &
+Responsabilidad institucional. \\ \hline
+
+10 &
+Verificación y mejora continua. &
+Buenas prácticas de seguridad. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+\subsection{Medidas correctivas prioritarias}
+
+\begin{table}[H]
+\centering
+\caption{Plan de implementación propuesto}
+\label{tab:implementacion}
+\small
+\begin{tabularx}{\textwidth}{|X|X|l|}
+\hline
+\textbf{Medida} &
+\textbf{Responsable} &
+\textbf{Prioridad} \\ \hline
+
+Restringir el acceso público
+a fotografías &
+Área de TI &
+Inmediata \\ \hline
+
+Implementar autorización
+por usuario y recurso &
+Desarrolladores &
+Alta \\ \hline
+
+Revisar directorios públicos &
+Área de TI &
+Alta \\ \hline
+
+Incorporar registros
+y alertas de acceso &
+Administradores &
+Alta \\ \hline
+
+Revisar mecanismos de SIITA &
+Desarrolladores &
+Media \\ \hline
+
+Actualizar la política
+de privacidad &
+Área jurídica &
+Alta \\ \hline
+
+Realizar auditorías periódicas &
+Área de TI &
+Continua \\ \hline
+
+Capacitar al personal &
+Administración &
+Continua \\ \hline
+
+\end{tabularx}
+\end{table}
+
+\section{Conclusiones}
+
+El análisis realizado permitió
+identificar una posible deficiencia
+de control de acceso en el
+almacenamiento y distribución
+de fotografías estudiantiles
+mediante SIISU.
+
+La utilización de direcciones
+predecibles asociadas a matrículas,
+combinada con la posibilidad
+reportada de consultar imágenes
+sin autenticación, representa
+un riesgo para la privacidad
+de la comunidad universitaria.
+
+Los antecedentes documentados
+demuestran que las fotografías
+estudiantiles pueden ser
+utilizadas para finalidades
+distintas a aquellas para
+las cuales fueron recopiladas.
+
+Por ello, se propone una
+política institucional que
+establezca responsabilidades,
+controles de autorización,
+medidas preventivas y
+procedimientos de actuación
+ante incidentes.
+
+La implementación de estas
+disposiciones permitiría
+fortalecer la protección
+de datos personales,
+reducir los riesgos
+de exposición y promover
+una cultura de seguridad
+digital dentro de la
+Universidad Politécnica
+de Victoria.
+
+
+
+\newpage
+
+\printbibliography[
+    heading=bibintoc,
+    title={Referencias}
+]
+\end{document}

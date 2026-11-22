@@ -1,0 +1,138 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  spanish,
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% Símbolos Unicode (griegos, sub/superíndices, operadores) que Latin Modern no trae
+\usepackage{newunicodechar}
+\newfontfamily\simbolos{DejaVu Serif}[Scale=MatchLowercase]
+\newunicodechar{α}{{\simbolos α}}
+\newunicodechar{β}{{\simbolos β}}
+\newunicodechar{δ}{{\simbolos δ}}
+\newunicodechar{η}{{\simbolos η}}
+\newunicodechar{π}{{\simbolos π}}
+\newunicodechar{ρ}{{\simbolos ρ}}
+\newunicodechar{τ}{{\simbolos τ}}
+\newunicodechar{χ}{{\simbolos χ}}
+\newunicodechar{ᵢ}{{\simbolos ᵢ}}
+\newunicodechar{⁰}{{\simbolos ⁰}}
+\newunicodechar{⁶}{{\simbolos ⁶}}
+\newunicodechar{⁷}{{\simbolos ⁷}}
+\newunicodechar{⁹}{{\simbolos ⁹}}
+\newunicodechar{⁻}{{\simbolos ⁻}}
+\newunicodechar{ⁿ}{{\simbolos ⁿ}}
+\newunicodechar{₀}{{\simbolos ₀}}
+\newunicodechar{₁}{{\simbolos ₁}}
+\newunicodechar{₂}{{\simbolos ₂}}
+\newunicodechar{₊}{{\simbolos ₊}}
+\newunicodechar{ₖ}{{\simbolos ₖ}}
+\newunicodechar{ₙ}{{\simbolos ₙ}}
+\newunicodechar{∈}{{\simbolos ∈}}
+\newunicodechar{∉}{{\simbolos ∉}}
+\newunicodechar{∝}{{\simbolos ∝}}
+\newunicodechar{≈}{{\simbolos ≈}}
+\newunicodechar{≠}{{\simbolos ≠}}
+\newunicodechar{≤}{{\simbolos ≤}}
+\newunicodechar{≥}{{\simbolos ≥}}
+\newunicodechar{⊆}{{\simbolos ⊆}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Instancias},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Instancias}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Origen y verificación}\label{origen-y-verificaciuxf3n}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{envelope6.hcp}: ejemplo oficial de 6 vértices de la página del
+  FHCP (3 ciclos hamiltonianos conocidos).
+\item
+  \texttt{graph1,\ graph2,\ graph3} (depuración, n=66/70/78) y
+  \texttt{graph24,\ graph41,\ graph172} (n=198/300/1002): tomados de una
+  \textbf{copia pública} del FHCP Challenge Set en GitHub (repositorio
+  cgungor/ham-path, carpeta FHCPCS), no del sitio oficial de Flinders.
+\item
+  Comprobaciones hechas: la copia tiene 1001 grafos, n entre 66 y 9528 y
+  media de \textasciitilde3098 vértices, que coincide con lo que publica
+  Flinders; los 1001 cargan sin errores; encabezado ``FHCP Challenge
+  Set. http://fhcp.edu.au/fhcpcs''.
+\item
+  \textbf{Pendiente:} compararlos con los archivos oficiales (FHCPCS.7z)
+  si logras descargarlos (comparar \texttt{sha256} del catálogo contra
+  el de los archivos oficiales). Mientras tanto, declarar en el informe
+  que la fuente fue una copia pública.
+\item
+  \texttt{ejemplo6.hcp} es un grafo propio de prueba, no es del FHCP.
+\end{itemize}
+
+\section{Catálogo}\label{catuxe1logo}
+
+\texttt{data/catalogo\_fhcp.csv} lista las 1001 instancias (archivo, n,
+m, grado mín/máx, sha256). Se regenera con:
+\texttt{python\ -m\ experiments.catalogo\ CARPETA\_CON\_HCP\ salida.csv}
+
+\end{document}

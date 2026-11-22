@@ -1,0 +1,3 @@
+vaciad el contenido del 7z en instances
+
+me vi en la necesidad de incluirlo asi porque son 1001 archivos

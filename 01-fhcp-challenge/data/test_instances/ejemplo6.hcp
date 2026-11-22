@@ -1,0 +1,14 @@
+NAME : ejemplo6
+COMMENT : Grafo de prueba de 6 vertices (propio, no es una instancia oficial del FHCP)
+TYPE : HCP
+DIMENSION : 6
+EDGE_DATA_FORMAT : EDGE_LIST
+EDGE_DATA_SECTION
+1 2
+2 3
+3 6
+6 5
+5 4
+4 1
+3 4
+-1
